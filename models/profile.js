@@ -4,11 +4,19 @@ module.exports = function(sequelize, DataTypes) {
 		name: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			validate: { isAlpha: true }
+			
         },
         username: {
             type: DataTypes.STRING,
+            allowNull: false
+          
+        },
+        email: {
+            type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                isEmail: true
+            } 
         },
         password: {
             type: DataTypes.STRING,
@@ -21,10 +29,13 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		gender: {
 			type: DataTypes.STRING,
-			allowNull: false
+            allowNull: false,
+            validate: {
+                isIn:[["male", "female"]]
+            } 
         },
         height: {
-            type: DataTypes.STRING,
+            type: DataTypes.FLOAT,
             allowNull: false
         },
         weight: {
@@ -35,6 +46,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         }
-	});
+    });
+    
 	return Profile;
 };

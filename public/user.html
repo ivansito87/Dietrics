@@ -20,32 +20,67 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" id="name"/>
+                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value=""
+                            id="name" required />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="age" class="form-control" placeholder="Age" value="" id="age" />
-                    </div>
-                    <div id="genre">
-                        <div class="form-check form-check-inline">
-                            <label class="radio-inline"><input type="radio" id="male" name="optradio" value= "male" checked="checked">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                        <label class="radio-inline"><input type="radio" id="female" name="optradio" value="female">Female</label>
-                        </div>
+                        <input type="text" name="age" class="form-control" placeholder="Age" value="" id="age" required />
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="btnSubmit" class="btnContact" value="Submit"  id="btnSubmit"/>
+                        <input type="text" name="weight" class="form-control" placeholder="Weight" value=""
+                            id="weight" required />
                     </div>
+                    <div class="form-group">
+                        <input type="text" name="height" class="form-control" placeholder="Height" value=""
+                            id="height" required/>
+                    </div>
+                    <div class="d-inline-flex">
+                        <label class="mr-2">Gender: </label>
+                        <div class="form-check form-check-inline">
+                            <label class="radio-inline"><input type="radio" id="male" name="gender" value="male"
+                                    checked="checked">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="radio-inline"><input type="radio" id="female" name="gender"
+                                    value="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="d-inline-flex">
+                        <label class="mr-2">Pregnant: </label>
+                        <div class="form-check form-check-inline">
+                            <label class="radio-inline"><input type="radio" id="isPregnant1" name="isPregnant"
+                                    value= true>Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="radio-inline"><input type="radio" id="isPregnant2" name="isPregnant"
+                                    value= false checked="checked">No</label>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
-                        <input type="text" name="weight" class="form-control" placeholder="Weight" value="" id="weight" />
-                        <br>
-                        <input type="text" name="height" class="form-control" placeholder="Height" value=""  id="height" />
+                        <input type="text" name="username" class="form-control" placeholder="username" value=""
+                            id="username" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="youremail@gmail.com" value=""
+                            id="email" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="password" value=""
+                            id="password" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="passwordConfirm" class="form-control" placeholder="passwordConfirm" value=""
+                            id="passwordConfirm" required/>
                     </div>
 
                 </div>
             </div>
+            <div class="form-group">
+                    <input type="submit" name="btnSubmit" class="btnContact btn btn-block btn-primary" value="Submit" />
+                </div>
         </form>
     </div>
 

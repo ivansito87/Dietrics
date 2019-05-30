@@ -26,6 +26,11 @@ module.exports = function (app) {
       });
    app.post("/api/post", function(req, res){
      console.log(req.body);
+     db.Profile.create(req.body)
+     .then(function(data){
+       console.log(data);
+       res.json(data);
+     })
    })
 
 };
