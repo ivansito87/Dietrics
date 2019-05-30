@@ -1,14 +1,19 @@
+require('dotenv').config();
 const express = require("express");
+const passport = require('passport');
 const app = express();
 
 var PORT = process.env.PORT || 8080;
 
 var db = require("./models");
+const { router:authRouter, localStrategy, jwtStrategy } = require('./auth');
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 // Static directory
 app.use(express.static("public"));
 
@@ -16,6 +21,7 @@ app.use(express.static("public"));
 // =============================================================
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes")(app);
+app.use('/api/auth/', authRouter);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
