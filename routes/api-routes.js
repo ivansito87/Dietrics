@@ -3,6 +3,7 @@
 // We need to include the path package to get the correct file path for our html
 // ===============================================================================
 var path = require("path");
+var db = require("../models");
 
 // ===============================================================================
 // Routing
@@ -18,6 +19,12 @@ module.exports = function (app) {
         return res.json(foods);
     });
 
+    app.get("/api/profiles", function(req, res) {
+        db.Profile.findAll({}).then(function(dbProfile) {
+          res.json(dbProfile);
+        });
+      });
+    
 
 };
 
