@@ -17,11 +17,12 @@ const createAuthToken = function(user) {
   });
 };
 
-const localAuth = passport.authenticate('local', {session: false});
+const localAuth = passport.authenticate('basic', {session: false});
 router.use(bodyParser.json());
 // The user provides a username and password to login
 router.post('/login', localAuth, (req, res) => {
-  const authToken = createAuthToken(req.user.serialize());
+  //const authToken = createAuthToken(req.user.serialize());
+  const authToken = createAuthToken(req.user)
   res.json({authToken});
 });
 
