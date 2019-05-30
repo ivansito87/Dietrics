@@ -5,7 +5,15 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: { isAlpha: true }
-		},
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
 		age: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
@@ -20,7 +28,8 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         weight: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         isPregnant: {
             type: DataTypes.BOOLEAN,
