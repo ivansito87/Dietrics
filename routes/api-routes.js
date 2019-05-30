@@ -24,7 +24,9 @@ module.exports = function (app) {
           res.json(dbProfile);
         });
       });
-    
+   app.post("/api/post", function(req, res){
+     console.log(req.body);
+   })
 
 };
 

@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>User Input</title>
 </head>
 
@@ -16,36 +15,44 @@
             <img src="https://draxe.com/wp-content/uploads/2019/01/keto-diet-for-beginners.jpg" style="width: 450px"
                 alt="diet" />
         </div>
-        <form method="post">
-            <h3>User Info</h3>
+        <form>
+            <h3>Personal Trainer</h3>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-12 col-md-6">
                     <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" id="name"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="age" class="form-control" placeholder="Age" value="" />
+                        <input type="text" name="age" class="form-control" placeholder="Age" value="" id="age" />
                     </div>
-                    <label class="radio-inline"><input type="radio" id="male" name="optradio" >Male</label>
-                    <label class="radio-inline"><input type="radio" id="female" name="optradio">Female</label>
-                    <!-- when female is selected, show this hidden button  -->
-                    <label class="radio-inline"><input type="radio" name="optradio">Pregnant</label>
-                    <!-- ------------------------------------------------------------- -->
+                    <div id="genre">
+                        <div class="form-check form-check-inline">
+                            <label class="radio-inline"><input type="radio" id="male" name="optradio" value= "male" checked="checked">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                        <label class="radio-inline"><input type="radio" id="female" name="optradio" value="female">Female</label>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <input type="submit" name="btnSubmit" class="btnContact" value="Send" />
+                        <input type="submit" name="btnSubmit" class="btnContact" value="Submit"  id="btnSubmit"/>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-12 col-md-6">
                     <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Weight" value="" />
+                        <input type="text" name="weight" class="form-control" placeholder="Weight" value="" id="weight" />
                         <br>
-                        <input type="text" name="txtName" class="form-control" placeholder="Height" value="" />
+                        <input type="text" name="height" class="form-control" placeholder="Height" value=""  id="height" />
                     </div>
 
                 </div>
             </div>
         </form>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>
