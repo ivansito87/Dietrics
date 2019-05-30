@@ -1,7 +1,18 @@
+
+function isValidField(requiredField){
+    const missingField = requiredField.find(field => field === "" );
+      console.log('missingField='+missingField)
+      console.log(requiredField)
+      if (missingField == "") {
+          return false;
+      }else{
+        return true;
+      }
+  }
+
 $( document ).ready(function() {
   $(".btnContact").click(function(event){
       event.preventDefault();
-      alert("clicked");
       const name = $("#name").val();
       const age = $("#age").val();
       const weight = $("#weight").val();
@@ -26,10 +37,34 @@ $( document ).ready(function() {
             weight: weight,
             isPregnant: isPregnant
         }
-    
-        $.post("/api/post", newUser).then(function(data){
-            console.log('successfully add a new user' + data);
+        
+        const requiredField = [
+            {field: "name", val: name}, 
+            {field: "username", val: username}, 
+            {field: "email", val: email}, 
+            {field: "password", val: password},
+            {field: "age", val: age},
+            { field: "height", val: height},
+            { field: "weight", val: weight} ];
+
+        let requiredFieldFlag = false;
+        requiredField.forEach(field => {
+            if(field.val === ""){
+                requiredFieldFlag = true;
+                $("#"+field.field).addClass("error");
+            }else{
+                $("#"+field.field).removeClass("error");
+            } 
         })
+
+        if(requiredFieldFlag){
+            alert('Fill all the form!');
+        }else{
+            $.post("/api/post", newUser).then(function(res){
+                console.log(res.status);
+                
+            })
+        }
       }
 
      
