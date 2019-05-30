@@ -13,6 +13,11 @@ module.exports = function (app) {
 
     const foods = require("../scripts/foods.json");
 
+    app.get("*", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
+
+
     // Respond with the html file for home
     app.get("/", function (req, res) {
         res.sendFile(path.join(__dirname, "/public/index.html"));
@@ -29,9 +34,6 @@ module.exports = function (app) {
     });
 
     //Respond with index.html for anything that the user might type in the url bar
-    app.get("*", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/index.html"));
-    });
 
 };
 
