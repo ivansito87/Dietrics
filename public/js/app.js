@@ -20,16 +20,14 @@ $( document ).ready(function() {
       const gender = $("input[type='radio'][name='gender']:checked").val();
       const isPregnant = ($("input[type='radio'][name='isPregnant']:checked").val() === "true")? true: false; 
       const username = $("#username").val();
-      const email = $("#email").val();
       const password = $("#password").val();
       const passwordConfirm = $("#passwordConfirm").val();
       if(password !== passwordConfirm){
-          console.log('passport not match!');
+        $(".userError").text("Password not match!");
       }else{
         const newUser = {
             name: name,
             username: username,
-            email: email,
             password: password,
             age: age,
             gender: gender,
@@ -37,11 +35,10 @@ $( document ).ready(function() {
             weight: weight,
             isPregnant: isPregnant
         }
-        
+    //user validation on empty field and non defined field input. 
         const requiredField = [
             {field: "name", val: name}, 
-            {field: "username", val: username}, 
-            {field: "email", val: email}, 
+            {field: "username", val: username},  
             {field: "password", val: password},
             {field: "age", val: age},
             { field: "height", val: height},
@@ -49,7 +46,7 @@ $( document ).ready(function() {
 
         let requiredFieldFlag = false;
         requiredField.forEach(field => {
-            if(field.val === ""){
+            if(field.val === "" || field === undefined){
                 requiredFieldFlag = true;
                 $("#"+field.field).addClass("error");
             }else{
@@ -58,10 +55,28 @@ $( document ).ready(function() {
         })
 
         if(requiredFieldFlag){
-            alert('Fill all the form!');
+            $(".userError").text("Fill all the field below!");
         }else{
-            $.post("/api/post", newUser).then(function(res){
-                console.log(res.status);
+            $.post("/api/post", newUser)
+            .then(function(res){
+                $("#username").removeClass("error");
+                $(".userError").text();
+                console.log(JSON.stringify(res));
+                //redirect to user account
+                
+            })
+            .catch(function(error){
+                //console.log("error: ");
+                //console.log(error);
+                //$("#username").prepend(`<p class="text-danger">username already taken</p>`);
+                if(error.status == "400"){
+                    $("#username").addClass("error");
+                    $(".userError").text("username already taken!");
+                }else{
+                    console.log('Internal Error');
+                }
+                
+               
                 
             })
         }
