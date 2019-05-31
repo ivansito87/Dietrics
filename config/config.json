@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "samuel2019",
+    "password": "supyall123",
     "database": "dietricsDB",
     "host": "127.0.0.1",
     "dialect": "mysql"
