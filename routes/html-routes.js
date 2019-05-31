@@ -13,9 +13,6 @@ module.exports = function (app) {
 
     const foods = require("../scripts/foods.json");
 
-    app.get("*", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/index.html"));
-    });
 
 
     // Respond with the html file for home
@@ -31,6 +28,15 @@ module.exports = function (app) {
     //Respond with the html for Personal Trainer
     app.get("/pt", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/pt.html"))
+    });
+
+    app.get("/main", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/main.html"))
+    });
+
+
+    app.get("*", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
     //Respond with index.html for anything that the user might type in the url bar
