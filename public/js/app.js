@@ -79,6 +79,23 @@ $( document ).ready(function() {
       event.preventDefault();
       const username = $("#username").val().trim();
       const password = $("#password").val().trim();
+      console.log('user is about to loggin!');
+      const token = btoa(`${username}:${password}`);
+      $.ajax({
+          method:'POST',
+          url: '/api/auth/login',
+          beforeSend: function(xhr){
+              xhr.setRequestHeader('Authorization', `Basic ${token}`);
+
+          },
+          success: function(authData){
+              console.log('Successfully login!');
+              console.log(authData);
+          },
+          error: function(xhr, ajaxOptions, throwError){
+              console.log(xhr);
+          }
+      })
 
 
 

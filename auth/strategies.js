@@ -1,5 +1,6 @@
 require('dotenv').config();
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const {BasicStrategy} = require('passport-http');
 const {
     Strategy: JwtStrategy,
