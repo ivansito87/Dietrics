@@ -3,6 +3,7 @@
 //total weight is grams
 
 const foods = require('./foods');
+const db = require('../models');
 //console.log(foods);
 function normalized(foods){
    return foods.map(function(food){
@@ -54,3 +55,12 @@ function normalized(foods){
 
 const foodsNor = normalized(foods);
 console.log(JSON.stringify(foodsNor));
+
+db.sequelize.sync().then(function() {
+    db.Food.bulkCreate(foodsNor)
+    .then(function(rows){
+        console.log("Seeded")
+    }).catch(function(err) {
+        console.log("Error", err)
+    })
+})
