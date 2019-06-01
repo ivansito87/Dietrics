@@ -63,10 +63,7 @@ $( document ).ready(function() {
                     $(".userError").text("username already taken!");
                 }else{
                     console.log('Internal Error');
-                }
-                
-               
-                
+                }   
             })
         }
       }
@@ -76,8 +73,17 @@ $( document ).ready(function() {
 
   $(".btnLoginSignUp").click(function(event){
       $("#loginModal").modal('toggle');
+  })
+
+  $(".loginSubmit").click(function(eevent){
+      event.preventDefault();
+      const username = $("#username").val().trim();
+      const password = $("#password").val().trim();
+      
+
 
   })
+
 
 
 
