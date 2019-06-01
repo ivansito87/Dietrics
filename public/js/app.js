@@ -75,11 +75,11 @@ $( document ).ready(function() {
       $("#loginModal").modal('toggle');
   })
 
-  $(".loginSubmit").click(function(eevent){
+  $(".loginSubmit").click(function(event){
       event.preventDefault();
       const username = $("#username").val().trim();
       const password = $("#password").val().trim();
-      
+
 
 
   })
