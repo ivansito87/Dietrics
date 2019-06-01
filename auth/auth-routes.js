@@ -37,4 +37,9 @@ router.post('/refresh', jwtAuth, (req, res) => {
   res.json({authToken});
 });
 
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 module.exports = {router};
