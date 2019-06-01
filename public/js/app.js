@@ -1,15 +1,4 @@
 
-function isValidField(requiredField){
-    const missingField = requiredField.find(field => field === "" );
-      console.log('missingField='+missingField)
-      console.log(requiredField)
-      if (missingField == "") {
-          return false;
-      }else{
-        return true;
-      }
-  }
-
 $( document ).ready(function() {
   $(".btnContact").click(function(event){
       event.preventDefault();
@@ -82,16 +71,28 @@ $( document ).ready(function() {
         }
       }
 
-     
-      
-      
-    
-      
-
-    
-
 
   })  
+
+  $(".btnLoginSignUp").click(function(event){
+      $("#loginModal").modal('toggle');
+
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
