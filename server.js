@@ -6,22 +6,28 @@ const app = express();
 var PORT = process.env.PORT || 8080;
 
 var db = require("./models");
-const { router:authRouter, localStrategy, jwtStrategy } = require('./auth');
+const { router:authRouter, basicStrategy, jwtStrategy } = require('./auth');
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-passport.use(localStrategy);
-passport.use(jwtStrategy);
+
+
 // Static directory
 app.use(express.static("public"));
+
+//authentification endpoints
+app.use(passport.initialize());
+passport.use(basicStrategy);
+passport.use(jwtStrategy);
 
 // Routes
 // =============================================================
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/post-api-routes.js")(app);
+
 app.use('/api/auth/', authRouter);
 
 // Syncing our sequelize models and then starting our Express app
