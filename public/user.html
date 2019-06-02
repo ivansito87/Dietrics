@@ -8,85 +8,99 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>User Input</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="container contact-form">
-        <div class="contact-image">
-            <img src="https://draxe.com/wp-content/uploads/2019/01/keto-diet-for-beginners.jpg" style="width: 450px"
-                alt="diet" />
-        </div>
-        <form>
-            <h3>User Profile</h3>
-            
-            <div class="row">
-                <div class="col-12 col-md-6">
-                        <p class="userError text-danger"></p>
-                    <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value=""
-                            id="name" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="age" class="form-control" placeholder="Age" value="" id="age" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="weight" class="form-control" placeholder="Weight" value=""
-                            id="weight" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="height" class="form-control" placeholder="Height" value=""
-                            id="height" required/>
-                    </div>
-                    <div class="d-inline-flex">
-                        <label class="mr-2">Gender: </label>
-                        <div class="form-check form-check-inline">
-                            <label class="radio-inline"><input type="radio" id="male" name="gender" value="male"
-                                    checked="checked">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="radio-inline"><input type="radio" id="female" name="gender"
-                                    value="female">Female</label>
-                        </div>
-                    </div>
-                    <div class="d-inline-flex">
-                        <label class="mr-2">Pregnant: </label>
-                        <div class="form-check form-check-inline">
-                            <label class="radio-inline"><input type="radio" id="isPregnant1" name="isPregnant"
-                                    value= true>Yes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="radio-inline"><input type="radio" id="isPregnant2" name="isPregnant"
-                                    value= false checked="checked">No</label>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="username" value=""
-                            id="username" required/>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="password" value=""
-                            id="password" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="passwordConfirm" class="form-control" placeholder="passwordConfirm" value=""
-                            id="passwordConfirm" required/>
-                    </div>
-
-                </div>
+<h1 class="whitebg"> User Sign UP
+    <small>Already A Member? &raquo; <a id="signIn">Sign In</a></small>
+</h1>
+<section class="contact-wrap">
+    <form action="" class="contact-form">
+        <div class="col-sm-12">
+            <h4 class="userError text-light"></h4>
+            <div class="input-block form-group">
+                <label for="">First and Last Name</label>
+                <input type="text" name="txtName" class="form-control" id="name" required/>
             </div>
-            <div class="form-group">
-                    <input type="submit" name="btnSubmit" class="btnContact btn btn-block btn-primary" value="Submit" />
-                </div>
-        </form>
-    </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="input-block">
+                <label for="">Your Age</label>
+                <input type="number" class="form-control" id="age" required/>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="input-block">
+                <label for="">Weight (pound, lb)</label>
+                <input type="number" class="form-control" id="weight" required/>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="input-block">
+                <label for="">Height (ft)</label>
+                <input type="number" class="form-control" id="height" required/>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <h3 class="text-center text-light my-4">Gender</h3>
+            <div class="radiobtn">
+                <input type="radio" id="male" name="gender" value="male" checked="checked"/>
+                <label for="male">Male</label>
+            </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="./js/app.js"></script>
+            <div class="radiobtn">
+                <input type="radio" id="female" name="gender" value="female"/>
+                <label for="female">Female</label>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <h3 class="text-center text-light my-4">Pregnant?</h3>
+            <div class="radiobtn">
+                <input type="radio" id="isPregnant2" name="isPregnant" value="false" checked="checked"/>
+                <label for="isPregnant2">No</label>
+            </div>
+            <div class="radiobtn">
+                <input type="radio" id="isPregnant1" name="isPregnant" value="true"/>
+                <label for="isPregnant1">Yes</label>
+            </div>
+        </div>
+        <div class="col-sm-12 text-center mt-5">
+            <button class="btnContact square-button">Register Now</button>
+        </div>
+        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
+
+        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
+        <!-- <div class="col-sm-12">
+             <div class="form-group">
+                 <input type="text" name="username" class="form-control" placeholder="username" value=""
+                        id="username" required/>
+             </div>
+             <div class="form-group">
+                 <input type="password" name="password" class="form-control" placeholder="password" value=""
+                        id="password" required />
+             </div>
+             <div class="form-group">
+                 <input type="password" name="passwordConfirm" class="form-control" placeholder="passwordConfirm" value=""
+                        id="passwordConfirm" required/>
+             </div>
+         </div>-->
+        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
+
+        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
+
+    </form>
+</section>
+<div class="made-with-love">
+    Made with
+    <i>♥</i> by
+    <a target="_blank" href="http://ivanrendon.dev">Ivan Rendon</a>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="./js/app.js"></script>
+<script src="js/style.js"></script>
 </body>
 
 </html>
