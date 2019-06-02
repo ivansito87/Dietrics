@@ -80,25 +80,33 @@ $( document ).ready(function() {
       const username = $("#username").val().trim();
       const password = $("#password").val().trim();
       console.log('user is about to loggin!');
+      console.log("username: "+username);
       const token = btoa(`${username}:${password}`);
       $.ajax({
           method:'POST',
           url: '/api/auth/login',
           beforeSend: function(xhr){
               xhr.setRequestHeader('Authorization', `Basic ${token}`);
+              xhr.setRequestHeader('WWW-Authenticate', "");
 
-          },
-          success: function(authData){
-              console.log('Successfully login!');
-              console.log(authData);
-          },
-          error: function(xhr, ajaxOptions, throwError){
-              console.log(xhr);
           }
-      })
+        }).done(function(authData){
+            console.log('Successfully login!');
+            console.log(authData);
+            //save user info to local storage so that your can access it
+            $("#loginModal").modal('hide');
+            $.ajax({
+                method: "GET",
+                url:'/main'
+            }).then(function(){
+                console.log('loading main page!');
+            });
 
-
-
+        }).fail(function(err){
+            console.log(err);
+          
+        });
+      
   })
 
 
