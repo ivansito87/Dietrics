@@ -12,14 +12,15 @@ const clearAuth = (authName) =>{
 $( document ).ready(function() {
   $(".btnContact").click(function(event){
       event.preventDefault();
+      alert('passed');
       const name = $("#name").val();
       const age = $("#age").val();
       const weight = $("#weight").val();
       const height = $("#height").val();
       const gender = $("input[type='radio'][name='gender']:checked").val();
       const isPregnant = ($("input[type='radio'][name='isPregnant']:checked").val() === "true")? true: false; 
-      const username = $("#username").val();
-      const password = $("#password").val();
+      const username = $("#username1").val();
+      const password = $("#password1").val();
       const passwordConfirm = $("#passwordConfirm").val();
       if(password !== passwordConfirm){
         $(".userError").text("Password not match!");
@@ -34,6 +35,7 @@ $( document ).ready(function() {
             weight: weight,
             isPregnant: isPregnant
         }
+        console.log(newUser);
     //user validation on empty field and non defined field input. 
         const requiredField = [
             {field: "name", val: name}, 
@@ -56,7 +58,7 @@ $( document ).ready(function() {
         if(requiredFieldFlag){
             $(".userError").text("Fill all the field below!");
         }else{
-            $.post("/api/post", newUser)
+            $.post("/api/user/post", newUser)
             .then(function(res){
                 $("#username").removeClass("error");
                 $(".userError").text();

@@ -95,4 +95,3 @@ $('.contact-form').find('.form-control').blur(function() {
     }
 });
 
-console.log()

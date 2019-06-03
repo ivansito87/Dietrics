@@ -14,11 +14,30 @@ $(document).ready(function(){
 
     $(".loginAs").text(`Loged In as: ${name}`);
 
+    //sign out
     $(".BtnSignOut").click(function(event){
-        clearAuth('id');
-        clearAuth('name');
-        clearAuth('token');
-        window.location.href = '/';
+        $.get('/api/auth/logout')
+        .then(function(data, status){
+            if(status === 'success'){
+                clearAuth('id');
+                clearAuth('name');
+                clearAuth('token');
+                console.log('successfully sign out!');
+                window.location.href = '/';
+            }
+            
+        })
+        
+    })
+
+    //accessing protected data
+    $.ajax({
+        url:'api/protected/foods',
+        methods: 'GET'
+    }).done(function(data){
+        console.log(data);
+    }).fail(function(err){
+        console.log(err);
     })
 
 

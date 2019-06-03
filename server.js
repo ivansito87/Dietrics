@@ -24,9 +24,9 @@ passport.use(jwtStrategy);
 
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
+require("./routes/api-user-routes.js")(app);
 require("./routes/html-routes.js")(app);
-require("./routes/post-api-routes.js")(app);
+require("./routes/food-api-routes")(app);
 
 app.use('/api/auth/', authRouter);
 
