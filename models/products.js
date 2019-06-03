@@ -1,78 +1,85 @@
 module.exports = function(sequelize, DataTypes) {
 
-	var Food = sequelize.define("Food", {
+    var Food = sequelize.define("Food", {
         name: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			
+            type: DataTypes.STRING,
+            allowNull: false
+
         },
-		Carbs: {
-			type: DataTypes.INTEGER,
-			defaultValue: 0
-			
-        },
-        Dietary_Fiber: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-          
-        },
-        SugarS: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0,
-        },
-		Fat: {
-			type: DataTypes.INTEGER,
-			defaultValue: 0,
-			validate: { isNumeric: true }
-		},
-		Saturated: {
-			type: DataTypes.INTEGER,
-            defaultValue: 0,
-            validate: {
-                isIn:[["male", "female"]]
-            } 
-        },
-        Polyunsaturated: {
-            type: DataTypes.INTEGER,
+        calories:{
+            type: DataTypes.FLOAT,
             defaultValue: 0
         },
-        Monounsaturated: {
-            type: DataTypes.INTEGER,
+        carbs: {
+            type: DataTypes.FLOAT,
             defaultValue: 0
         },
-        Protein: {
-            type: DataTypes.INTEGER,
-            defaultValue: false
-        },
-        Sodium: {
-            type: DataTypes.INTEGER,
+        dietary_Fiber: {
+            type: DataTypes.FLOAT,
             defaultValue: 0
         },
-        Potassium: {
-            type: DataTypes.INTEGER,
+        sugars: {
+            type: DataTypes.FLOAT,
             defaultValue: 0
         },
-        Cholesterol: {
-            type: DataTypes.INTEGER,
-            defaultValue: false
-        },
-        Vitamin_A: {
-            type: DataTypes.INTEGER,
+        added_sugars:{
+            type: DataTypes.FLOAT,
             defaultValue: 0
         },
-        Vitamin_C: {
-            type: DataTypes.INTEGER,
+        fat: {
+            type: DataTypes.FLOAT,
             defaultValue: 0
         },
-        Calcium: {
-            type: DataTypes.INTEGER,
-            defaultValue: false
+        saturated: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+
         },
-        Iron: {
-            type: DataTypes.INTEGER,
-            defaultValue: false
+        polyunsaturated: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        monounsaturated: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        protein: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        sodium: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        potassium: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        cholesterol: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        vitamin_A: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        vitamin_C: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        vitamin_D: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        calcium: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        iron: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
         }
     });
-    
-	return Food;
+
+    return Food;
 };
