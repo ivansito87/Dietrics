@@ -22,6 +22,7 @@ module.exports = function (app) {
   });
 
   app.post("/api/user/post", function (req, res) {
+    console.log('checked passed 1');
     console.log(req.body);
    
     let username = (req.body.name).trim();
@@ -37,6 +38,7 @@ module.exports = function (app) {
          const hash = bcrypt.hashSync(req.body.password, 10);
          const newUser = req.body;
          newUser.password = hash;
+         console.log('checked passed 2');
          console.log(newUser);
          db.Profile.create(req.body)
         .then(data =>  {

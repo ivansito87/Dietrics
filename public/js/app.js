@@ -24,6 +24,7 @@ $( document ).ready(function() {
       const passwordConfirm = $("#passwordConfirm").val();
       if(password !== passwordConfirm){
         $(".userError").text("Password not match!");
+        console.log('password not match!');
       }else{
         const newUser = {
             name: name,
@@ -35,12 +36,13 @@ $( document ).ready(function() {
             weight: weight,
             isPregnant: isPregnant
         }
+        console.log("post checked passed 1");
         console.log(newUser);
     //user validation on empty field and non defined field input. 
         const requiredField = [
             {field: "name", val: name}, 
-            {field: "username", val: username},  
-            {field: "password", val: password},
+            {field: "username1", val: username},  
+            {field: "password1", val: password},
             {field: "age", val: age},
             { field: "height", val: height},
             { field: "weight", val: weight} ];
@@ -50,6 +52,7 @@ $( document ).ready(function() {
             if(field.val === "" || field === undefined){
                 requiredFieldFlag = true;
                 $("#"+field.field).addClass("error");
+                console.log("required field!");
             }else{
                 $("#"+field.field).removeClass("error");
             } 
@@ -60,7 +63,7 @@ $( document ).ready(function() {
         }else{
             $.post("/api/user/post", newUser)
             .then(function(res){
-                $("#username").removeClass("error");
+                $("#username1").removeClass("error");
                 $(".userError").text();
                 console.log(JSON.stringify(res));
                 //redirect to user account
@@ -71,7 +74,7 @@ $( document ).ready(function() {
                 //console.log(error);
                 //$("#username").prepend(`<p class="text-danger">username already taken</p>`);
                 if(error.status == "400"){
-                    $("#username").addClass("error");
+                    $("#username1").addClass("error");
                     $(".userError").text("username already taken!");
                 }else{
                     console.log('Internal Error');
