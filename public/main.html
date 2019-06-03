@@ -1,22 +1,430 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Dietrics</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dietrics</title>
+    <script src="https://kit.fontawesome.com/39240a0297.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:800|Roboto:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+          type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<nav class="navbar navbar-light static-top">
+    <div class="container">
+        <a class="navbar-brand text-light" href="/">Dietrics.Com</a>
+        <h5 class="text-left text-light">Loged In as: UserName</h5>
+        <button class="h5 square-button px-5 newBtn mx-5" onclick="window.location.href = '/';"> Sign Out
+        </button>
+    </div>
+</nav>
+<header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 mx-auto">
+                <h1 class="mb-5 slogan">Health starts with what you eat.</h1>
+                <h4 class="font-weight-bolder text-dark secondLogan">Dietrics creates personalized meal plans based on your food
+                    preferences, budget, and schedule. Reach your diet and nutritional goals with our calorie
+                    calculator, weekly meal plans, grocery lists and more. Create your meal plan right here in
+                    seconds.</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-lg-10 col-xl-10 mx-auto">
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="col-12 col-md-12 mb-2 mb-md-0">
+                            <input type="email" class="form-control form-control-lg text-center"
+                                   placeholder="Get the nutrition for any food.. example one apple..." id="inputSearch">
+                        </div>
+                        <div class="col-sm-12 text-center mt-5">
+                            <button class="square-button" id="bttonSearch">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<!--Food -->
+<section class="testimonials text-center text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col pt-0">
+                <section class="performance-facts">
+                    <header class="performance-facts__header">
+                        <h4 class="performance-facts__title servings2">Nutrition Facts</h4>
+                        <h2 class="mb-3 text-center performance-facts__title">Serving Size: One Avocado</h2>
+                    </header>
+                    <table class="performance-facts__table">
+                        <thead>
+                        <tr>
+                            <th colspan="3" class="small-info">
+                                Amount Per Serving
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th colspan="2">
+                                <b>Calories</b>
+                                200
+                            </th>
+                            <td>
+                                Calories from Fat
+                                130
+                            </td>
+                        </tr>
+                        <tr class="thick-row">
+                            <td colspan="3" class="small-info">
+                                <b>% Daily Value*</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <b>Total Fat</b>
+                                14g
+                            </th>
+                            <td>
+                                <b>22%</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blank-cell">
+                            </td>
+                            <th>
+                                Saturated Fat
+                                9g
+                            </th>
+                            <td>
+                                <b>22%</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blank-cell">
+                            </td>
+                            <th>
+                                Trans Fat
+                                0g
+                            </th>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <b>Cholesterol</b>
+                                55mg
+                            </th>
+                            <td>
+                                <b>18%</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <b>Sodium</b>
+                                40mg
+                            </th>
+                            <td>
+                                <b>2%</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <b>Total Carbohydrate</b>
+                                17g
+                            </th>
+                            <td>
+                                <b>6%</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blank-cell">
+                            </td>
+                            <th>
+                                Dietary Fiber
+                                1g
+                            </th>
+                            <td>
+                                <b>4%</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="blank-cell">
+                            </td>
+                            <th>
+                                Sugars
+                                14g
+                            </th>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr class="thick-end">
+                            <th colspan="2">
+                                <b>Protein</b>
+                                3g
+                            </th>
+                            <td>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="performance-facts__table--grid">
+                        <tbody>
+                        <tr>
+                            <td colspan="2">
+                                Vitamin A
+                                10%
+                            </td>
+                            <td>
+                                Vitamin C
+                                0%
+                            </td>
+                        </tr>
+                        <tr class="thin-end">
+                            <td colspan="2">
+                                Calcium
+                                10%
+                            </td>
+                            <td>
+                                Iron
+                                6%
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <h6 class="small-info mb-5">* Percent Daily Values are based on a 2,000 calorie diet. Your daily
+                        values may be higher or lower depending on your calorie needs:</h6>
+                    <table class="performance-facts__table--small small-info">
+                        <thead>
+                        <tr>
+                            <td colspan="2"></td>
+                            <th>Calories:</th>
+                            <th>2,000</th>
+                            <th>2,500</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Total Fat</th>
+                            <td>Less than</td>
+                            <td>65g</td>
+                            <td>80g</td>
+                        </tr>
+                        <tr>
+                            <td class="blank-cell"></td>
+                            <th>Saturated Fat</th>
+                            <td>Less than</td>
+                            <td>20g</td>
+                            <td>25g</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Cholesterol</th>
+                            <td>Less than</td>
+                            <td>300mg</td>
+                            <td>300 mg</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Sodium</th>
+                            <td>Less than</td>
+                            <td>2,400mg</td>
+                            <td>2,400mg</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3">Total Carbohydrate</th>
+                            <td>300g</td>
+                            <td>375g</td>
+                        </tr>
+                        <tr>
+                            <td class="blank-cell"></td>
+                            <th colspan="2">Dietary Fiber</th>
+                            <td>25g</td>
+                            <td>30g</td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-	<nav class="navbar navbar-light bg-light">
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="inputSearch">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="bttonSearch">Search</button>
-		</form>
-	</nav>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/app.js"></script>
+                    <p class="small-info">
+                        Calories per gram:
+                    </p>
+                </section>
+            </div>
+        </div>
+
+        <h2 class="mb-2 mt-5 text-center servings2">Daily Goals</h2>
+        <h2 class="mb-5 text-center performance-facts__title">How does this food fit into your daily goals?</h2>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <h2 class="servings">20%</h2>
+                    <i class="fas fa-chart-line energy"></i>
+                    <h5 class="servings mt-1">360 Calories</h5>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <h2 class="servings">30%</h2>
+                    <i class="fas fa-chart-pie energy"></i>
+                    <h5 class="servings mt-1">50g Carbs</h5>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <h2 class="servings">60%</h2>
+                    <i class="fas fa-chart-bar energy"></i>
+                    <h5 class="servings mt-1">20g Fat</h5>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <h2 class="servings">30%</h2>
+                    <i class="fas fa-dna energy"></i>
+                    <h5 class="servings mt-1">25g Protein</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Icons Grid -->
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <h2 class="subtitle mb-0">Activity Needed to Burn:</h2>
+        <h2 class="calories mt-0">160 calories</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex ">
+                        <i class="fas fa-dumbbell  m-auto text-primary"></i>
+                    </div>
+                    <h3 class="calories">50</h3>
+                    <p class="lead mb-0">Minutes of Exercise</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex">
+                        <i class="fas fa-running  m-auto text-primary"></i>
+                    </div>
+                    <h3 class="calories">30</h3>
+                    <p class="lead mb-0">Minutes of Running</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                    <div class="features-icons-icon d-flex">
+                        <i class="fas fa-walking  m-auto text-primary"></i>
+                    </div>
+                    <h3 class="calories">16</h3>
+                    <p class="lead mb-0">Minutes of Walking</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Image Showcases -->
+<section class="showcase">
+    <div class="container">
+        <h1 class="mb-5 servings3">Eating healthy is important<br/>Checkout this<br/>Recipes and Inspiration</h1>
+        <div class="row no-gutters">
+            <div class="col-lg-6 order-lg-2 text-light showcase-img" style="background-image:
+    linear-gradient(to bottom, rgba(245,246,252,0.31), rgba(117, 19, 93, 0.73)),
+    url('https://images.unsplash.com/photo-1520334298038-4182dac472e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1902&q=80');;"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2 class="text-light">Some Workout</h2>
+                <p class="lead mb-0 text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+                    dignissimos dolorem perspiciatis possimus totam. Alias, consectetur consequatur cum, deserunt
+                    dignissimos earum iusto laudantium nemo officiis, sapiente sed velit voluptatibus? Ea!</p>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-lg-6 text-white showcase-img" style="background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.31), rgba(117, 19, 93, 0.73)),
+    url('https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80');;"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2 class="text-light">Some Recipe</h2>
+                <p class="lead mb-0 text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at eius
+                    expedita fugiat possimus, quas unde vero. Consectetur earum, exercitationem fugiat illo labore
+                    possimus quidem quod sequi sint voluptas voluptatem?</p>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.31), rgba(117, 19, 93, 0.73)),
+    url('https://images.unsplash.com/photo-1531520563951-4c0e3d3fcacc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1507&q=80');;"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2 class="text-light">Some Tip</h2>
+                <p class="lead mb-0 text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam
+                    aspernatur atque, aut distinctio dolor ducimus facere facilis hic laudantium maiores obcaecati
+                    pariatur perspiciatis, placeat praesentium quam quibusdam tenetur, velit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonials -->
+
+<!-- Call to Action -->
+<section class="call-to-action text-white text-center beforefooter">
+    <div class="overlay"></div>
+    <div class="container beforefooter">
+        <div class="row beforefooter">
+            <div class="col-xl-9 mx-auto">
+                <h2 class="mb-4">Ready to get started? Sign up to receive tips! </h2>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <form>
+                    <div class="form-row">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email..."
+                                   id="emailInput">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button class="btn btn-block btn-lg btn-primary newBtn">Sign up!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer text-light">
+    <div class="container">
+        <h6 id="codedAt">Created at the Coding Bootcamp</h6>
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item text-light">
+                        <a href="#">Ivan Rendon</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Samuel Dijiani</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Ramis Naseem</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Miles Moscara</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/style.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
 </body>
-</html>
+</html>∫

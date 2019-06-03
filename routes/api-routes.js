@@ -29,7 +29,7 @@ module.exports = function (app) {
   app.post("/api/post", function (req, res) {
     console.log(req.body);
    
-    let username = (req.body.username).trim();
+    let username = (req.body.name).trim();
      db.Profile.findAndCountAll({ where: { username: username } })
       .then(result => {
         if (result.count > 0) {
