@@ -50,6 +50,10 @@
                         </div>
                     </div>
                 </form>
+                <!-- <div class="chart-container" style="position: relative; height:70vh; width:70vw">
+                <canvas height="100px;" width="300px;" style="margin-top: 30px; margin-bottom: -100px; float: right" id="myChart"></canvas>
+                <canvas height="100px;" width="300px;" style="margin-top: 50px; margin-bottom: -100px; float: right" id="myChart2"></canvas>
+                </div> -->
             </div>
         </div>
     </div>
@@ -261,7 +265,16 @@
         <h2 class="mb-2 mt-5 text-center servings2">Daily Goals</h2>
         <h2 class="mb-5 text-center performance-facts__title">How does this food fit into your daily goals?</h2>
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-6">
+            <div class="chart-container" style="position: relative; height:70vh; width:70vw">
+                <canvas height="100px;" width="300px;" style="margin-top: 30px; margin-bottom: -100px; float: right" id="myChart"></canvas>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                    <div class="chart-container" style="position: relative; height:70vh; width:70vw">
+                    <canvas height="100px;" width="300px;" style="margin-top: 50px; margin-bottom: -100px; float: right" id="myChart2"></canvas>
+            </div>    
+            <!-- <div class="col-sm-3">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                     <h2 class="servings">20%</h2>
                     <i class="fas fa-chart-line energy"></i>
@@ -287,7 +300,7 @@
                     <h2 class="servings">30%</h2>
                     <i class="fas fa-dna energy"></i>
                     <h5 class="servings mt-1">25g Protein</h5>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -423,8 +436,10 @@
         </div>
     </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="js/style.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/FDA.js"></script>
 <script type="text/javascript" src="./js/app.js"></script>
 </body>
 </html>∫

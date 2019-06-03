@@ -440,5 +440,3 @@ const FDA = {
 		}
 	}
 };
-
-module.exports = FDA;
