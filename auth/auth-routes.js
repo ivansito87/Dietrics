@@ -27,11 +27,11 @@ router.post('/login', basicAuth, (req, res) => {
   //console.log('this is the req.user values:');
  //console.log(req.user);
   const authToken = createAuthToken(req.user);
-  const usrRes = {
+  const userRes = {
     user: req.user,
     authToken: authToken
   }
-  res.json({usrRes});
+  res.json(userRes);
 });
 
 const jwtAuth = passport.authenticate('jwt', {session: false});

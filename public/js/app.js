@@ -1,3 +1,13 @@
+const loadAuth = (authName) =>{
+    return localStorage.getItem(authName);
+  }
+const saveAuth = (authName, authValue) =>{
+    return localStorage.setItem(authName, authValue);
+  }
+  
+const clearAuth = (authName) =>{
+    return localStorage.removeItem(authName);
+  }
 
 $( document ).ready(function() {
   $(".btnContact").click(function(event){
@@ -71,7 +81,7 @@ $( document ).ready(function() {
 
   })  
 
-  $(".btnLoginSignUp").click(function(event){
+  $("#signIn").click(function(event){
       $("#loginModal").modal('toggle');
   })
 
@@ -94,14 +104,12 @@ $( document ).ready(function() {
             console.log('Successfully login!');
             console.log(authData);
             //save user info to local storage so that your can access it
+            saveAuth('id', authData.user.id);
+            saveAuth('token', authData.authToken);
+            saveAuth('name', authData.user.name);
             $("#loginModal").modal('hide');
-            $.ajax({
-                method: "GET",
-                url:'/main'
-            }).then(function(){
-                console.log('loading main page!');
-            });
-
+            window.location.href='/main'; 
+            
         }).fail(function(err){
             console.log(err);
           

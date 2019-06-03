@@ -38,7 +38,6 @@ module.exports = function (app) {
             message: 'user already taken',
             location: 'username'
           });
-          console.log("400");
         }
          const hash = bcrypt.hashSync(req.body.password, 10);
          const newUser = req.body;

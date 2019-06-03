@@ -94,13 +94,57 @@
 <div class="made-with-love">
     Made with
     <i>♥</i> by
-    <a target="_blank" href="http://ivanrendon.dev">Ivan Rendon</a>
+    <a target="_blank" href="http://ivanrendon.dev">Ivan Rendon ... and the name of the team...</a>
+    <
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="./js/app.js"></script>
-<script src="js/style.js"></script>
 </body>
+<!-- The Modal -->
+<div class="modal" id="loginModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div>
+            <div class="d-inline-flex align-center">
+              <h3>Login</h3>
+            </div>
+            <div class="d-inline-flex float-right"><a href="./user.html">sign up</a></div>
+          </div>
+          <form>
+            <div class="form-group">
+              <label for="username">username:</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter password" name="pswd">
+            </div>
+  
+            <div class="btn-group">
+              <button type="submit" class="btn btn-primary loginSubmit">Submit</button>
+            </div>
+            <div class="form-group form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+              </label> <br>
+              <a href="">forgot password</a>
+            </div>
+            <div>
+  
+            </div>
+          </form>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
 
 </html>
