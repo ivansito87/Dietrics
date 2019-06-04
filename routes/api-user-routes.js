@@ -17,22 +17,51 @@ let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_ke
 
 module.exports = function (app) {
 
-    const foods = require("../scripts/foods.json");
+// <<<<<<< HEAD:routes/api-user-routes.js
+  
 
-    //Respond with the api call
-    app.get("/api/foods", function (req, res) {
-        return res.json(foods);
+  app.get("/api/user/profiles", function (req, res) {
+    db.Profile.findAll({}).then(function (dbProfile) {
+      res.json(dbProfile);
     });
+  });
 
-    //get Profiles from database
-    app.get("/api/profiles", function (req, res) {
-        db.Profile.findAll({}).then(function (dbProfile) {
-            res.json(dbProfile);
-        });
+  app.get("/api/user/:id", function (req, res) {
+    console.log(req.params.id)
+    db.Profile.findOne({where: {id:req.params.id}})
+    .then(function (user) {
+      res.json(user);
     });
+  });
+
+  // app.post("/api/user/post", function (req, res) {
+  //   console.log(req.body);
+   
+  //   let username = (req.body.username).trim();
+  //    db.Profile.findAndCountAll({ where: { username: username } })
+  //     .then(result => {
+  //       if (result.count > 0) {
+  //          return res.status(400).send({
+  //           reason: 'ValidationError',
+  //           message: 'user already taken',
+  //           location: 'username'
+  //         });
+    // const foods = require("../scripts/foods.json");
+
+    // //Respond with the api call
+    // app.get("/api/foods", function (req, res) {
+    //     return res.json(foods);
+    // });
+
+    // //get Profiles from database
+    // app.get("/api/profiles", function (req, res) {
+    //     db.Profile.findAll({}).then(function (dbProfile) {
+    //         res.json(dbProfile);
+    //     });
+    // });
 
     // Make a new post from the user input querying the API and storing the response in DB
-    app.post("/api/post", function (req, res) {
+    app.post("/api/user/post", function (req, res) {
         // Our request comes on the body of the api/post
         console.log(req.body);     //<-------- Testing the request from the front end
 
@@ -45,7 +74,7 @@ module.exports = function (app) {
                         message: 'user already taken',
                         location: 'username'
                     });
-                    console.log("400");
+                   
                 }
                 const hash = bcrypt.hashSync(req.body.password, 10);
                 const newUser = req.body;
