@@ -21,6 +21,14 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/user/:id", function (req, res) {
+    console.log(req.params.id)
+    db.Profile.findOne({where: {id:req.params.id}})
+    .then(function (user) {
+      res.json(user);
+    });
+  });
+
   app.post("/api/user/post", function (req, res) {
     console.log(req.body);
    

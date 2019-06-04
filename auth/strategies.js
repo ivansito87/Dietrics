@@ -13,7 +13,7 @@ console.log("JWT_SECRET: "+ JWT_SECRET);
 
 const basicStrategy = new BasicStrategy((username, password, callback) => {
     let user;
-    db.Profile.findOne({username: username})
+    db.Profile.findOne({where:{username: username}})
         .then(_user => {
             user = _user;
             if (!user) {

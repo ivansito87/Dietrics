@@ -19,13 +19,13 @@ const createAuthToken = function(user) {
 };
 
 const basicAuth = passport.authenticate('basic', {session: false});
-router.use(bodyParser.json());
+//router.use(bodyParser.json());
 
 // The user provides a username and password to login
 router.post('/login', basicAuth, (req, res) => {
   //const authToken = createAuthToken(req.user.serialize());
-  //console.log('this is the req.user values:');
- //console.log(req.user);
+  console.log('this is the req.user values:');
+ console.log(req.user);
   const authToken = createAuthToken(req.user);
   const userRes = {
     user: req.user,
