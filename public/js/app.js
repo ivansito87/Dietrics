@@ -111,9 +111,9 @@ $(document).ready(function () {
                 labels: ['Carbs', 'Fat', 'Protein'],
                 datasets: [{
                     label: 'Recommended',
-                    backgroundColor: "rgba(51,255,0,0.2)",
-                    borderColor: "rgba(220,220,220,1)",
-                    borderCapStyle: "rgba(220,220,220,1)",    
+                    backgroundColor: "rgba(0,255,0,0.2)",
+                    borderColor: "rgba(0,255,0,0.2)",
+                    borderCapStyle: "rgba(0,255,0,0.2)",    
                     data: [
                         100,
                         100,
@@ -121,6 +121,9 @@ $(document).ready(function () {
                     ]
                 }, {
                     label: 'Your Intake',
+                    backgroundColor: "rgba(255,153,51,0.2)",
+                    borderColor: "rgba(255,153,51,0.2)",
+                    borderCapStyle: "rgba(255,153,51,0.2)",    
                     data: 
                         arr2
                     
@@ -148,6 +151,9 @@ $(document).ready(function () {
                 labels: ['Vitamin A', 'Vitamin C', 'Vitamin B6', 'Vitamin B12', 'Vitamin D', 'Vitamin E', 'Vitamin K', 'Niacin', 'Riboflavin', 'Thiamin', 'Iron', 'Calcium', 'Folate', 'Phosphorus', 'Magnesium', 'Zinc', 'Potassium'],
                 datasets: [{
                     label: 'Recommended',
+                    backgroundColor: "rgba(0,255,0,0.2)",
+                    borderColor: "rgba(0,255,0,0.2)",
+                    borderCapStyle: "rgba(0,255,0,0.2)",    
                     data: [
                         100,
                         100,
@@ -169,6 +175,9 @@ $(document).ready(function () {
                     ]
                 }, {
                     label: 'Your Intake',
+                    backgroundColor: "rgba(255,153,51,0.2)",
+                    borderColor: "rgba(255,153,51,0.2)",
+                    borderCapStyle: "rgba(255,153,51,0.2)",   
                     data: arr,
                 }]
             },
@@ -192,7 +201,6 @@ $(document).ready(function () {
     function dailyValuesFDA(res) {
 
         $.get("/api/profiles", function (data) {
-            var age = 0;
             for (var i = 0; i < data.length; i++) {
                 if ("Miles" === data[i].name) {
                     age = data[i].age;
