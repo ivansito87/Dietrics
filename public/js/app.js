@@ -276,15 +276,8 @@ $( document ).ready(function() {
 
 
     function dailyValuesFDA(res) {
-<<<<<<< HEAD
-
-        $.get("/api/profiles", function (data) {
-            for (var i = 0; i < data.length; i++) {
-                if ("Miles" === data[i].name) {
-                    age = data[i].age;
-                    isPregnant = data[i].isPregnant;
-=======
         const id = localStorage.getItem("id");
+        console.log(id);
         $.get("/api/user/"+id)
         .then(function(user){
             console.log(user);
@@ -292,7 +285,6 @@ $( document ).ready(function() {
             isPregnant = user.isPregnant;
             console.log(age);
             console.log(isPregnant);
->>>>>>> 3265d13abb2fc679fa5a0cb4fc7190015ac2113c
                     if (age >= 4 && !isPregnant) {
                         return olderThan4(res);
                     }
@@ -307,15 +299,8 @@ $( document ).ready(function() {
                     if (isPregnant) {
                         return isPregnant(res);
                     }
-<<<<<<< HEAD
-                }
-            }
-
-        })
-=======
         });
 
->>>>>>> 3265d13abb2fc679fa5a0cb4fc7190015ac2113c
     }
 
 
@@ -414,11 +399,7 @@ $( document ).ready(function() {
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
         })
-<<<<<<< HEAD
-
-=======
         console.log("ran this");
->>>>>>> 3265d13abb2fc679fa5a0cb4fc7190015ac2113c
         renderCharts(intArr, intArr2);
     }
 
