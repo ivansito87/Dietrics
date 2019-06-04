@@ -93,9 +93,54 @@ $(document).ready(function () {
 
 function searchFood(foodRequest) {
     $.post("/api/query", {foodRequest})
-        .then(function (data) {
-            console.log("Working");
+        .then(function (data) {    //<---------- Response from database
+
+            const food = data;
+            console.log(food);
+            const foodName = food.name;
+
             // response from the database query
-            console.log(data);
+            $("#servingSize").text(foodName.charAt(0).toUpperCase() + foodName.slice(1));
+            $("#calories").text(Math.floor(food.calories));
+            $("#caloriesFromFat").text(Math.floor(food.caloriesFromFat));
+            $("#totalFat").text(Math.floor(food.fat));
+            $("#fatDaily").text(Math.floor((food.fat * 100) / 80));
+            $("#saturedFat").text(Math.floor(food.saturated));
+            $("#dailySatFat").text(Math.floor((food.saturated * 100) / 60));
+            $("#transFat").text(` 0g`);
+            if (food.cholesterol < 1) {
+                $("#cholesterol").text(`<   1`);
+            } else {
+                $("#cholesterol").text(Math.floor(food.cholesterol));
+            }
+            $("#dailyColesterol").text((Math.floor((food.cholesterol * 100)/300)));
+            $("#sodium").text(Math.floor(food.sodium) * 5);
+            $("#dalySodium").text(Math.floor(food.sodium));
+            $("#carbs").text(Math.floor(food.carbs));
+            $("#dalyCarbs").text((Math.floor((food.carbs * 100) / 300)));
+            $("#fiber").text(Math.floor(food.dietary_Fiber) * 2);
+            $("#dailyFiber").text(Math.floor(food.dietary_Fiber));
+            $("#sugars").text(Math.floor(food.sugars));
+            $("#protein").text(Math.floor(food.protein));
+            $("#vitA").text(Math.floor(food.vitamin_A));
+            $("#vitC").text(Math.floor(food.vitamin_C));
+            $("#calcium").text(Math.floor(food.calcium));
+            if (food.iron < 1) {
+                $("#iron").text(`< 1%`);
+            } else {
+                $("#iron").text(`${Math.floor(food.iron)}%`);
+            }
+            $("#dailyCaloriesPercent").text(Math.floor((food.calories * 100)/2500));
+            $("#dailyCalories").text(Math.floor(food.calories));
+            $("#carbsPercentage").text((Math.floor((food.carbs * 100) / 300)));
+            $("#carbsInGrams").text(Math.floor(food.carbs));
+            $("#fatPercent").text(Math.floor((food.fat * 100) / 80));
+            $("#fatInGrams").text(Math.floor(food.fat));
+            $("#proteinPercent").text(Math.floor((food.protein * 100)/56));
+            $("#proteinInGrams").text(Math.floor(food.protein));
+            $("#caloriesToBurn").text(Math.floor(food.calories));
+            $("#minutesOfExcersise").text(Math.floor(food.calories * .15));
+            $("#minutesOfRunning").text(Math.floor(food.calories * .1));
+            $("#minutesOfWalking").text(Math.floor(food.calories * .2));
         });
 }

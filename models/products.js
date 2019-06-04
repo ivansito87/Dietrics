@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.FLOAT,
             defaultValue: 0
         },
+        caloriesFromFat:{
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
         carbs: {
             type: DataTypes.FLOAT,
             defaultValue: 0

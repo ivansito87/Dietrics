@@ -5,20 +5,21 @@
 const foods = require('./foods');
 const db = require('../models');
 
-//console.log(foods);
+
+/// =========== >>>>>>>>> condition ? exprIfTrue : exprIfFalse  <<<<<<<<<<<<+++++++++++++++
 function normalized(foods) {
     return foods.map(function (food) {
         let fDaily = food.totalDaily;
-
         let name = food.name;
         let calories = food.calories;
+        let caloriesFromFat = food.totalNutrientsKCal.FAT_KCAL.quantity ? food.totalNutrientsKCal.FAT_KCAL.quantity : 0;
         let carbs = fDaily.CHOCDF ? fDaily.CHOCDF.quantity : 0;
         let dietary_Fiber = fDaily.FIBTG ? fDaily.FIBTG.quantity : 0;
-        let sugars = fDaily.SUGAR ? fDaily.SUGA.quantity : 0;
+        let sugars = food.totalNutrients.SUGAR ? food.totalNutrients.SUGAR.quantity : 0;
         let added_sugars = fDaily["SUGAR.added"] ? fDaily["SUGAR.added"].quantity : 0;
         let fat = fDaily.FAT ? fDaily.FAT.quantity : 0;
         let saturated = fDaily.FASAT ? fDaily.FASAT.quantity : 0;
-        let cholesterol = fDaily.CHOLE ? fDaily.CHOLE.quantity : 0;
+        let cholesterol = food.totalNutrients.CHOLE ? food.totalNutrients.CHOLE.quantity : 0;
         let polyunsaturated = fDaily.FAPU ? fDaily.FAPU.quantity : 0;
         let monounsaturated = fDaily.FAMS ? fDaily.FAMS.quantity : 0;
         let protein = fDaily.PROCNT ? fDaily.PROCNT.quantity : 0;
@@ -32,6 +33,7 @@ function normalized(foods) {
         return {
             name: name,
             calories: parseFloat(calories).toFixed(2),
+            caloriesFromFat: parseFloat(caloriesFromFat),
             carbs: parseFloat(carbs).toFixed(2),
             dietary_Fiber: parseFloat(dietary_Fiber).toFixed(2),
             sugars: parseFloat(sugars).toFixed(2),

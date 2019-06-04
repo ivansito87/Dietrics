@@ -62,7 +62,7 @@
                 <section class="performance-facts">
                     <header class="performance-facts__header">
                         <h4 class="performance-facts__title servings2">Nutrition Facts</h4>
-                        <h2 class="mb-3 text-center performance-facts__title">Serving Size: One Avocado</h2>
+                        <h2 class="mb-3 text-center performance-facts__title">Serving Size: <span id="servingSize"></span></h2>
                     </header>
                     <table class="performance-facts__table">
                         <thead>
@@ -75,12 +75,12 @@
                         <tbody>
                         <tr>
                             <th colspan="2">
-                                <b>Calories</b>
-                                200
+                                <b>Calories&ensp;</b>
+                                <span id="calories"></span>
                             </th>
                             <td>
-                                Calories from Fat
-                                130
+                                Calories from Fat&ensp;
+                                <span id="caloriesFromFat"></span>
                             </td>
                         </tr>
                         <tr class="thick-row">
@@ -90,78 +90,71 @@
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <b>Total Fat</b>
-                                14g
+                                <b>Total Fat&ensp;<span id="totalFat"></span>g</b>
                             </th>
                             <td>
-                                <b>22%</b>
+                                <b><span id="fatDaily"></span>&percnt;</b>
                             </td>
                         </tr>
                         <tr>
                             <td class="blank-cell">
                             </td>
                             <th>
-                                Saturated Fat
-                                9g
+                                Saturated Fat&ensp;
+                                <span id="saturedFat"></span>g
                             </th>
                             <td>
-                                <b>22%</b>
+                                <b><span id="dailySatFat"></span>&percnt;</b>
                             </td>
                         </tr>
                         <tr>
                             <td class="blank-cell">
                             </td>
                             <th>
-                                Trans Fat
-                                0g
+                                Trans Fat&ensp;<span id="transFat"></span>&ensp;
                             </th>
                             <td>
                             </td>
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <b>Cholesterol</b>
-                                55mg
+                                <b>Cholesterol&ensp;<span id="cholesterol"></span>mg</b>
                             </th>
                             <td>
-                                <b>18%</b>
+                                <b><span id="dailyColesterol"></span>&percnt;</b>
                             </td>
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <b>Sodium</b>
-                                40mg
+                                <b>Sodium&ensp;<span id="sodium"></span>mg</b>
                             </th>
                             <td>
-                                <b>2%</b>
+                                <b><span id="dalySodium"></span>%</b>
                             </td>
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <b>Total Carbohydrate</b>
-                                17g
+                                <b>Total Carbohydrate&ensp;<span id="carbs"></span>g</b>
                             </th>
                             <td>
-                                <b>6%</b>
+                                <b><span id="dalyCarbs"></span>%</b>
                             </td>
                         </tr>
                         <tr>
                             <td class="blank-cell">
                             </td>
                             <th>
-                                Dietary Fiber
-                                1g
+                                <b>Dietary Fiber&ensp;<span id="fiber"></span>g</b>
                             </th>
                             <td>
-                                <b>4%</b>
+                                <b><span id="dailyFiber"></span>%</b>
                             </td>
                         </tr>
                         <tr>
                             <td class="blank-cell">
                             </td>
                             <th>
-                                Sugars
-                                14g
+                                Sugars&ensp;<span id="sugars"></span>g
                             </th>
                             <td>
                             </td>
@@ -169,7 +162,7 @@
                         <tr class="thick-end">
                             <th colspan="2">
                                 <b>Protein</b>
-                                3g
+                                <span id="protein"></span>g
                             </th>
                             <td>
                             </td>
@@ -181,21 +174,20 @@
                         <tr>
                             <td colspan="2">
                                 Vitamin A
-                                10%
+                                <span id="vitA"></span>&percnt;
                             </td>
                             <td>
                                 Vitamin C
-                                0%
+                                <span id="vitC"></span>&percnt;
                             </td>
                         </tr>
                         <tr class="thin-end">
                             <td colspan="2">
                                 Calcium
-                                10%
+                                <span id="calcium"></span>&percnt;
                             </td>
                             <td>
-                                Iron
-                                6%
+                                Iron&ensp;<span id="iron"></span>
                             </td>
                         </tr>
                         </tbody>
@@ -263,30 +255,30 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <h2 class="servings">20%</h2>
+                    <h2 class="servings"><span id="dailyCaloriesPercent"></span>&percnt;</h2>
                     <i class="fas fa-chart-line energy"></i>
-                    <h5 class="servings mt-1">360 Calories</h5>
+                    <h5 class="servings mt-1"><span id="dailyCalories"></span>&ensp;Calories</h5>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <h2 class="servings">30%</h2>
+                    <h2 class="servings"><span id="carbsPercentage"></span>%</h2>
                     <i class="fas fa-chart-pie energy"></i>
-                    <h5 class="servings mt-1">50g Carbs</h5>
+                    <h5 class="servings mt-1">Carbs&ensp;<span id="carbsInGrams"></span>g</h5>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <h2 class="servings">60%</h2>
+                    <h2 class="servings"><span id="fatPercent"></span>&percnt;</h2>
                     <i class="fas fa-chart-bar energy"></i>
-                    <h5 class="servings mt-1">20g Fat</h5>
+                    <h5 class="servings mt-1">Fat&ensp;<span id="fatInGrams"></span>g</h5>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                    <h2 class="servings">30%</h2>
+                    <h2 class="servings"><span id="proteinPercent"></span>&percnt;</h2>
                     <i class="fas fa-dna energy"></i>
-                    <h5 class="servings mt-1">25g Protein</h5>
+                    <h5 class="servings mt-1">Protein&ensp;<span id="proteinInGrams"></span>g</h5>
                 </div>
             </div>
         </div>
@@ -296,15 +288,15 @@
 <section class="features-icons bg-light text-center">
     <div class="container">
         <h2 class="subtitle mb-0">Activity Needed to Burn:</h2>
-        <h2 class="calories mt-0">160 calories</h2>
+        <h2 class="calories mt-0"><span id="caloriesToBurn"></span>&ensp;Calories</h2>
         <div class="row">
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex ">
                         <i class="fas fa-dumbbell  m-auto text-primary"></i>
                     </div>
-                    <h3 class="calories">50</h3>
-                    <p class="lead mb-0">Minutes of Exercise</p>
+                    <h3 class="calories"><span id="minutesOfExcersise"></span></h3>
+                    <p class="lead mb-0">Minutes at the Gym</p>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -312,7 +304,7 @@
                     <div class="features-icons-icon d-flex">
                         <i class="fas fa-running  m-auto text-primary"></i>
                     </div>
-                    <h3 class="calories">30</h3>
+                    <h3 class="calories"><span id="minutesOfRunning"></span></h3>
                     <p class="lead mb-0">Minutes of Running</p>
                 </div>
             </div>
@@ -321,7 +313,7 @@
                     <div class="features-icons-icon d-flex">
                         <i class="fas fa-walking  m-auto text-primary"></i>
                     </div>
-                    <h3 class="calories">16</h3>
+                    <h3 class="calories"><span id="minutesOfWalking"></span></h3>
                     <p class="lead mb-0">Minutes of Walking</p>
                 </div>
             </div>

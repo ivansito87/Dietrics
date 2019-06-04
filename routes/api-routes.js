@@ -118,14 +118,15 @@ function normalized(data, name) {
     let foods = JSON.parse(data);
     let food = foods.totalDaily;
     let calories = foods.calories;
+    let caloriesFromFat = foods.totalNutrientsKCal.FAT_KCAL.quantity ? foods.totalNutrientsKCal.FAT_KCAL.quantity : 0;
     let carbs = food.CHOCDF.quantity ? food.CHOCDF.quantity : 0;
     console.log(carbs);
     let dietary_Fiber = food.FIBTG ? food.FIBTG.quantity : 0;
-    let sugars = food.SUGAR ? food.SUGA.quantity : 0;
+    let sugars = foods.totalNutrients.SUGAR ? foods.totalNutrients.SUGAR.quantity : 0;
     let added_sugars = food["SUGAR.added"] ? food["SUGAR.added"].quantity : 0;
     let fat = food.FAT ? food.FAT.quantity : 0;
     let saturated = food.FASAT ? food.FASAT.quantity : 0;
-    let cholesterol = food.CHOLE ? food.CHOLE.quantity : 0;
+    let cholesterol = foods.totalNutrients.CHOLE ? foods.totalNutrients.CHOLE.quantity : 0;
     let polyunsaturated = food.FAPU ? food.FAPU.quantity : 0;
     let monounsaturated = food.FAMS ? food.FAMS.quantity : 0;
     let protein = food.PROCNT ? food.PROCNT.quantity : 0;
@@ -139,6 +140,7 @@ function normalized(data, name) {
     return {
         name: name.split("%20").join(" "),
         calories: parseFloat(calories).toFixed(2),
+        caloriesFromFat : parseFloat(caloriesFromFat).toFixed(2),
         carbs: parseFloat(carbs).toFixed(2),
         dietary_Fiber: parseFloat(dietary_Fiber).toFixed(2),
         sugars: parseFloat(sugars).toFixed(2),
