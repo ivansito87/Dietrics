@@ -1,11 +1,21 @@
 
+// const loadAuth = (authName) =>{
+//     return localStorage.getItem(authName);
+//   }
+// const saveAuth = (authName, authValue) =>{
+//     return localStorage.setItem(authName, authValue);
+//   }
+  
+// const clearAuth = (authName) =>{
+//     return localStorage.removeItem(authName);
+//   }
 $(document).ready(function(){
     const name = loadAuth('name');
     if(name === null){
         window.location.href='/';
     }
 
-    $(".loginAs").text(`Loged In as: ${name}`);
+    $(".loginAs").text(`Logged In as: ${name}`);
 
     //sign out
     $(".BtnSignOut").click(function(event){
