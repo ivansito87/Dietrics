@@ -94,3 +94,4 @@ $('.contact-form').find('.form-control').blur(function() {
         }, 300);
     }
 });
+

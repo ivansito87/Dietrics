@@ -13,23 +13,18 @@ const bcrypt = require('bcrypt');
 
 module.exports = function (app) {
 
-  const foods = require("../scripts/foods.json");
+  
 
-  //Respond with the api call
-  app.get("/api/foods", function (req, res) {
-    return res.json(foods);
-  });
-
-  app.get("/api/profiles", function (req, res) {
+  app.get("/api/user/profiles", function (req, res) {
     db.Profile.findAll({}).then(function (dbProfile) {
       res.json(dbProfile);
     });
   });
 
-  app.post("/api/post", function (req, res) {
+  app.post("/api/user/post", function (req, res) {
     console.log(req.body);
    
-    let username = (req.body.name).trim();
+    let username = (req.body.username).trim();
      db.Profile.findAndCountAll({ where: { username: username } })
       .then(result => {
         if (result.count > 0) {
@@ -38,7 +33,6 @@ module.exports = function (app) {
             message: 'user already taken',
             location: 'username'
           });
-          console.log("400");
         }
          const hash = bcrypt.hashSync(req.body.password, 10);
          const newUser = req.body;
