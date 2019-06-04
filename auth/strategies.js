@@ -1,5 +1,5 @@
 require('dotenv').config();
-const passport = require('passport');
+//const passport = require('passport');
 const bcrypt = require('bcrypt');
 const {BasicStrategy} = require('passport-http');
 const {
@@ -42,6 +42,10 @@ const basicStrategy = new BasicStrategy((username, password, callback) => {
             return callback(err, false);
         });
 });
+
+basicStrategy._challenge = function () {
+    return "";
+};
 
 const jwtStrategy = new JwtStrategy(
     {

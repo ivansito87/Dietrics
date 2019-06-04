@@ -14,19 +14,19 @@
 <h1 class="whitebg"> User Sign UP
     <small>Already A Member? &raquo; <a id="signIn">Sign In</a></small>
 </h1>
+<h4 class="userError text-danger text-center"></h4>
 <section class="contact-wrap">
-    <h4 class="userError text-light"></h4>
+    
     <form action="" class="contact-form">
-        <div class="col-sm-12">
-            
+        <div class="col-sm-12"> 
             <div class="input-block form-group">
-                <label for="">First and Last Name</label>
-                <input type="text" name="txtName" class="form-control" id="name" required/>
+                <label for="name">First and Last Name</label>
+                <input type="text" name="name" class="form-control" id="name" required/>
             </div>
         </div>
         <div class="col-sm-12">
             <div class="input-block">
-                <label for="">Your Age</label>
+                <label for="age">Your Age</label>
                 <input type="number" class="form-control" id="age" required/>
             </div>
         </div>
@@ -65,26 +65,29 @@
                 <label for="isPregnant1">Yes</label>
             </div>
         </div>
-        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
 
-        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
-       <div class="col-sm-12">
-        <div class="form-group">
-            <input type="text" name="username1" class="form-control" placeholder="username" value=""
-                   id="username1" required/>
+        <div class="col-sm-12"> 
+            <div class="input-block form-group">
+                <label for="username1">username</label>
+                <input type="text" name="username1" class="form-control" id="username1" required/>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="password" name="password1" class="form-control" placeholder="password" value=""
-                   id="password1" required />
+        
+        <div class="col-sm-12">
+            <div class="input-block">
+                <label for="password1">password</label>
+                <input type="password" class="form-control" id="password1" required/>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="password" name="passwordConfirm" class="form-control" placeholder="passwordConfirm" value=""
-                   id="passwordConfirm" required/>
+        
+        <div class="col-sm-12">
+            <div class="input-block">
+                <label for="passwordConfirm">Confirm your password </label>
+                <input type="password" class="form-control" id="passwordConfirm" required/>
+            </div>
         </div>
     </div>
-   <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
-
-   <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
+   
         <div class="col-sm-12 text-center mt-5">
             <button class="btnContact square-button" >Register Now</button>
         </div>
@@ -101,23 +104,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="./js/app.js"></script>
 <script src="./js/style.js"></script>
+<script src="./js/app.js"></script>
+
 </body>
 <!-- The Modal -->
-<div class="modal" id="loginModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
+<div class="modal fade" id="loginModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
         <!-- Modal body -->
         <div class="modal-body">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close btn btn-sm" data-dismiss="modal">&times;</button>
           </div>
           <div>
             <div class="d-inline-flex align-center">
               <h3>Login</h3>
             </div>
-            <div class="d-inline-flex float-right"><a href="./user.html">sign up</a></div>
+            <p class="signError text-danger"></p>
           </div>
           <form>
             <div class="form-group">
@@ -125,19 +129,21 @@
               <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
             </div>
             <div class="form-group">
-              <label for="pwd">Password:</label>
+              <label for="password">Password:</label>
               <input type="password" class="form-control" id="password" placeholder="Enter password" name="pswd">
             </div>
   
             <div class="btn-group">
-              <button type="submit" class="btn btn-primary loginSubmit">Submit</button>
+              <button type="submit" class="btn btn-primary btn-block loginSubmit">Submit</button>
             </div>
             <div class="form-group form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-              </label> <br>
-              <a href="">forgot password</a>
+                <input class="form-check-input" type="checkbox" name="remember" id="rememberMe" checked> Remember me
+                <a href="">Forgot password</a>
+              </label> 
+              
             </div>
+            
             <div>
   
             </div>

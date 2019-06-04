@@ -11,6 +11,9 @@ const clearAuth = (authName) =>{
   }
 $(document).ready(function(){
     const name = loadAuth('name');
+    if(name === null){
+        window.location.href='/';
+    }
 
     $(".loginAs").text(`Loged In as: ${name}`);
 
@@ -31,14 +34,14 @@ $(document).ready(function(){
     })
 
     //accessing protected data
-    $.ajax({
-        url:'api/protected/foods',
-        methods: 'GET'
-    }).done(function(data){
-        console.log(data);
-    }).fail(function(err){
-        console.log(err);
-    })
+    // $.ajax({
+    //     url:'api/protected/foods',
+    //     methods: 'GET'
+    // }).done(function(data){
+    //     console.log(data);
+    // }).fail(function(err){
+    //     console.log(err);
+    // })
 
 
 })

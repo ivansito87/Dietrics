@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-
 // Static directory
 app.use(express.static("public"));
 
@@ -21,6 +20,14 @@ app.use(express.static("public"));
 app.use(passport.initialize());
 passport.use(basicStrategy);
 passport.use(jwtStrategy);
+
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type');
+  res.append('WWW-Authenticate', '');
+  next();
+});
 
 // Routes
 // =============================================================
