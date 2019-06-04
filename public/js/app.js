@@ -111,6 +111,9 @@ $(document).ready(function () {
                 labels: ['Carbs', 'Fat', 'Protein'],
                 datasets: [{
                     label: 'Recommended',
+                    backgroundColor: "rgba(51,255,0,0.2)",
+                    borderColor: "rgba(220,220,220,1)",
+                    borderCapStyle: "rgba(220,220,220,1)",    
                     data: [
                         100,
                         100,
