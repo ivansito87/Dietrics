@@ -300,29 +300,6 @@ $( document ).ready(function() {
                     }
         });
 
-        // $.get("/api/profiles", function (data) {
-        //     for (var i = 0; i < data.length; i++) {
-        //         if ("Miles" === data[i].name) {
-        //             age = data[i].age;
-        //             isPregnant = data[i].isPregnant;
-        //             if (age >= 4 && !isPregnant) {
-        //                 return olderThan4(res);
-        //             }
-
-        //             if (age > 1 && age <= 3) {
-        //                 return between1And3(res);
-        //             }
-        //             if (age <= 1) {
-        //                 return lessThan1(res);
-        //           }
-      
-        //             if (isPregnant) {
-        //                 return isPregnant(res);
-        //             }
-        //         }
-        //     }
-
-        // })
     }
 
 
