@@ -1,23 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
 
-	var Food = sequelize.define("Food", {
+    var Food = sequelize.define("Food", {
         name: {
-			type: DataTypes.STRING,
-			allowNull: false
-			
+            type: DataTypes.STRING,
+            allowNull: false
+
         },
         calories:{
-			type: DataTypes.FLOAT,
-			defaultValue: 0	
+            type: DataTypes.FLOAT,
+            defaultValue: 0
         },
         caloriesFromFat:{
             type: DataTypes.FLOAT,
             defaultValue: 0
         },
-        
-		carbs: {
-			type: DataTypes.FLOAT,
-			defaultValue: 0	
+        carbs: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
         },
         dietary_Fiber: {
             type: DataTypes.FLOAT,
@@ -28,17 +27,17 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: 0
         },
         added_sugars:{
-			type: DataTypes.FLOAT,
-			defaultValue: 0
-		},
-		fat: {
-			type: DataTypes.FLOAT,
-			defaultValue: 0
-		},
-		saturated: {
-			type: DataTypes.FLOAT,
+            type: DataTypes.FLOAT,
             defaultValue: 0
-            
+        },
+        fat: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
+        saturated: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+
         },
         polyunsaturated: {
             type: DataTypes.FLOAT,
@@ -85,6 +84,6 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: 0
         }
     });
-    
-	return Food;
+
+    return Food;
 };

@@ -1,6 +1,6 @@
 [
 	{
-		"name": "apple",
+		"name": "one apple",
 		"calories": 94,
 		"totalWeight": 182,
 		"dietLabels": ["LOW_FAT"],
@@ -274,7 +274,7 @@
 		}
 	},
 	{
-		"name": "orange",
+		"name": "one orange",
 		"calories": 61,
 		"totalWeight": 131,
 		"dietLabels": ["LOW_FAT"],
@@ -528,7 +528,7 @@
 		}
 	},
 	{
-		"name": "yoghurt",
+		"name": "one yoghurt",
 		"calories": 138,
 		"totalWeight": 227,
 		"dietLabels": [],
@@ -822,7 +822,7 @@
 		}
 	},
 	{
-		"name": "avocado",
+		"name": "one avocado",
 		"calories": 321,
 		"totalWeight": 201,
 		"dietLabels": ["LOW_CARB"],
@@ -1096,7 +1096,7 @@
 		}
 	},
 	{
-		"name": "cheeseburger",
+		"name": "one cheeseburger",
 		"calories": 312,
 		"totalWeight": 119,
 		"dietLabels": ["BALANCED"],
@@ -1340,7 +1340,7 @@
 		}
 	},
 	{
-		"name": "vanilla ice cream",
+		"name": "one vanilla ice cream",
 		"calories": 207,
 		"totalWeight": 100,
 		"dietLabels": [],

@@ -25,7 +25,6 @@ app.use((req, res, next) => {
   res.append('Access-Control-Allow-Origin', ['*']);
   res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.append('Access-Control-Allow-Headers', 'Content-Type');
-  res.append('WWW-Authenticate', '');
   next();
 });
 
@@ -39,7 +38,7 @@ app.use('/api/auth/', authRouter);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force:false}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on http://localhost:" + PORT);
   });

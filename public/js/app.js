@@ -163,8 +163,14 @@ $( document ).ready(function() {
     $("#bttonSearch").on("click", (e) => {
         e.preventDefault();
         let userInput = $("#inputSearch").val();
-        userInput.split(" ").join("%20");
-        let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=" + userInput;
+        let userInput2 = userInput;
+
+        
+        userInput.split(",").join("%20");
+        searchFood(userInput);
+
+
+        let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=" + userInput2;
         $.get({
             url: queryURL,
             method: "GET",
@@ -176,6 +182,7 @@ $( document ).ready(function() {
         });
 
 
+        
     });
 
     function renderCharts(arr, arr2) {
@@ -282,10 +289,10 @@ $( document ).ready(function() {
         .then(function(user){
             console.log(user);
             age = user.age;
-            isPregnant = user.isPregnant;
+            isPregnantCheckedish = user.isPregnant;
             console.log(age);
-            console.log(isPregnant);
-                    if (age >= 4 && !isPregnant) {
+            console.log(isPregnantCheckedish);
+                    if (age >= 4 && !isPregnantCheckedish) {
                         return olderThan4(res);
                     }
 
@@ -296,7 +303,7 @@ $( document ).ready(function() {
                         return lessThan1(res);
                   }
       
-                    if (isPregnant) {
+                    if (isPregnantCheckedish) {
                         return isPregnant(res);
                     }
         });
@@ -433,9 +440,64 @@ $( document ).ready(function() {
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
         })
-
+        console.log("ran this");
         renderCharts(intArr, intArr2);
     }
 
 
 });
+
+
+function searchFood(foodRequest) {
+    $.post("/api/query", {foodRequest})
+        .then(function (data) {    //<---------- Response from database
+
+            const food = data;
+            console.log(food);
+            const foodName = food.name;
+
+            // response from the database query
+            $("#servingSize").text(foodName.charAt(0).toUpperCase() + foodName.slice(1));
+            $("#calories").text(Math.floor(food.calories));
+            $("#caloriesFromFat").text(Math.floor(food.caloriesFromFat));
+            $("#totalFat").text(Math.floor(food.fat));
+            $("#fatDaily").text(Math.floor((food.fat * 100) / 80));
+            $("#saturedFat").text(Math.floor(food.saturated));
+            $("#dailySatFat").text(Math.floor((food.saturated * 100) / 60));
+            $("#transFat").text(` 0g`);
+            if (food.cholesterol < 1) {
+                $("#cholesterol").text(`<   1`);
+            } else {
+                $("#cholesterol").text(Math.floor(food.cholesterol));
+            }
+            $("#dailyColesterol").text((Math.floor((food.cholesterol * 100)/300)));
+            $("#sodium").text(Math.floor(food.sodium) * 5);
+            $("#dalySodium").text(Math.floor(food.sodium));
+            $("#carbs").text(Math.floor(food.carbs));
+            $("#dalyCarbs").text((Math.floor((food.carbs * 100) / 300)));
+            $("#fiber").text(Math.floor(food.dietary_Fiber) * 2);
+            $("#dailyFiber").text(Math.floor(food.dietary_Fiber));
+            $("#sugars").text(Math.floor(food.sugars));
+            $("#protein").text(Math.floor(food.protein));
+            $("#vitA").text(Math.floor(food.vitamin_A));
+            $("#vitC").text(Math.floor(food.vitamin_C));
+            $("#calcium").text(Math.floor(food.calcium));
+            if (food.iron < 1) {
+                $("#iron").text(`< 1%`);
+            } else {
+                $("#iron").text(`${Math.floor(food.iron)}%`);
+            }
+            $("#dailyCaloriesPercent").text(Math.floor((food.calories * 100)/2500));
+            $("#dailyCalories").text(Math.floor(food.calories));
+            $("#carbsPercentage").text((Math.floor((food.carbs * 100) / 300)));
+            $("#carbsInGrams").text(Math.floor(food.carbs));
+            $("#fatPercent").text(Math.floor((food.fat * 100) / 80));
+            $("#fatInGrams").text(Math.floor(food.fat));
+            $("#proteinPercent").text(Math.floor((food.protein * 100)/56));
+            $("#proteinInGrams").text(Math.floor(food.protein));
+            $("#caloriesToBurn").text(Math.floor(food.calories));
+            $("#minutesOfExcersise").text(Math.floor(food.calories * .15));
+            $("#minutesOfRunning").text(Math.floor(food.calories * .1));
+            $("#minutesOfWalking").text(Math.floor(food.calories * .2));
+        });
+}
