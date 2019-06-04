@@ -333,9 +333,9 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF.quantity)
-        var fatPercent = (responseFromApi.totalDaily.FAT.quantity)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT.quantity)
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
+        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -366,9 +366,9 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF.quantity)
-        var fatPercent = (responseFromApi.totalDaily.FAT.quantity)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT.quantity)
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
+        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -399,9 +399,10 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF.quantity)
-        var fatPercent = (responseFromApi.totalDaily.FAT.quantity)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT.quantity)
+     
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
+        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -433,9 +434,9 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF.quantity)
-        var fatPercent = (responseFromApi.totalDaily.FAT.quantity)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT.quantity)
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
+        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -453,51 +454,52 @@ function searchFood(foodRequest) {
         .then(function (data) {    //<---------- Response from database
 
             const food = data;
+            console.log('foor details');
             console.log(food);
             const foodName = food.name;
 
             // response from the database query
             $("#servingSize").text(foodName.charAt(0).toUpperCase() + foodName.slice(1));
-            $("#calories").text(Math.floor(food.calories));
-            $("#caloriesFromFat").text(Math.floor(food.caloriesFromFat));
-            $("#totalFat").text(Math.floor(food.fat));
-            $("#fatDaily").text(Math.floor((food.fat * 100) / 80));
-            $("#saturedFat").text(Math.floor(food.saturated));
-            $("#dailySatFat").text(Math.floor((food.saturated * 100) / 60));
+            $("#calories").text(Math.ceil(food.calories));
+            $("#caloriesFromFat").text(Math.ceil(food.caloriesFromFat));
+            $("#totalFat").text(Math.ceil(food.fat));
+            $("#fatDaily").text(Math.ceil((food.fat * 100) / 80));
+            $("#saturedFat").text(Math.ceil(food.saturated));
+            $("#dailySatFat").text(Math.ceil((food.saturated * 100) / 60));
             $("#transFat").text(` 0g`);
             if (food.cholesterol < 1) {
                 $("#cholesterol").text(`<   1`);
             } else {
-                $("#cholesterol").text(Math.floor(food.cholesterol));
+                $("#cholesterol").text(Math.ceil(food.cholesterol));
             }
-            $("#dailyColesterol").text((Math.floor((food.cholesterol * 100)/300)));
-            $("#sodium").text(Math.floor(food.sodium) * 5);
-            $("#dalySodium").text(Math.floor(food.sodium));
-            $("#carbs").text(Math.floor(food.carbs));
-            $("#dalyCarbs").text((Math.floor((food.carbs * 100) / 300)));
-            $("#fiber").text(Math.floor(food.dietary_Fiber) * 2);
-            $("#dailyFiber").text(Math.floor(food.dietary_Fiber));
-            $("#sugars").text(Math.floor(food.sugars));
-            $("#protein").text(Math.floor(food.protein));
-            $("#vitA").text(Math.floor(food.vitamin_A));
-            $("#vitC").text(Math.floor(food.vitamin_C));
-            $("#calcium").text(Math.floor(food.calcium));
+            $("#dailyColesterol").text((Math.ceil((food.cholesterol * 100)/300)));
+            $("#sodium").text(Math.ceil(food.sodium) * 5);
+            $("#dalySodium").text(Math.ceil(food.sodium));
+            $("#carbs").text(Math.ceil(food.carbs));
+            $("#dalyCarbs").text((Math.ceil((food.carbs * 100) / 300)));
+            $("#fiber").text(Math.ceil(food.dietary_Fiber) * 2);
+            $("#dailyFiber").text(Math.ceil(food.dietary_Fiber));
+            $("#sugars").text(Math.ceil(food.sugars));
+            $("#protein").text(Math.ceil(food.protein));
+            $("#vitA").text(Math.ceil(food.vitamin_A));
+            $("#vitC").text(Math.ceil(food.vitamin_C));
+            $("#calcium").text(Math.ceil(food.calcium));
             if (food.iron < 1) {
                 $("#iron").text(`< 1%`);
             } else {
-                $("#iron").text(`${Math.floor(food.iron)}%`);
+                $("#iron").text(`${Math.ceil(food.iron)}%`);
             }
-            $("#dailyCaloriesPercent").text(Math.floor((food.calories * 100)/2500));
-            $("#dailyCalories").text(Math.floor(food.calories));
-            $("#carbsPercentage").text((Math.floor((food.carbs * 100) / 300)));
-            $("#carbsInGrams").text(Math.floor(food.carbs));
-            $("#fatPercent").text(Math.floor((food.fat * 100) / 80));
-            $("#fatInGrams").text(Math.floor(food.fat));
-            $("#proteinPercent").text(Math.floor((food.protein * 100)/56));
-            $("#proteinInGrams").text(Math.floor(food.protein));
-            $("#caloriesToBurn").text(Math.floor(food.calories));
-            $("#minutesOfExcersise").text(Math.floor(food.calories * .15));
-            $("#minutesOfRunning").text(Math.floor(food.calories * .1));
-            $("#minutesOfWalking").text(Math.floor(food.calories * .2));
+            $("#dailyCaloriesPercent").text(Math.ceil((food.calories * 100)/2500));
+            $("#dailyCalories").text(Math.ceil(food.calories));
+            $("#carbsPercentage").text((Math.ceil((food.carbs * 100) / 300)));
+            $("#carbsInGrams").text(Math.ceil(food.carbs));
+            $("#fatPercent").text(Math.ceil((food.fat * 100) / 80));
+            $("#fatInGrams").text(Math.ceil(food.fat));
+            $("#proteinPercent").text(Math.ceil((food.protein * 100)/56));
+            $("#proteinInGrams").text(Math.ceil(food.protein));
+            $("#caloriesToBurn").text(Math.ceil(food.calories));
+            $("#minutesOfExcersise").text(Math.ceil(food.calories * .15));
+            $("#minutesOfRunning").text(Math.ceil(food.calories * .1));
+            $("#minutesOfWalking").text(Math.ceil(food.calories * .2));
         });
 }

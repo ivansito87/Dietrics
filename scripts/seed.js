@@ -12,7 +12,7 @@ function normalized(foods) {
         let fDaily = food.totalDaily;
         let name = food.name;
         let calories = food.calories;
-        let caloriesFromFat = food.totalNutrientsKCal.FAT_KCAL.quantity ? food.totalNutrientsKCal.FAT_KCAL.quantity : 0;
+        let caloriesFromFat = food.totalNutrientsKCal.FAT_KCAL ? food.totalNutrientsKCal.FAT_KCAL.quantity : 0;
         let carbs = fDaily.CHOCDF ? fDaily.CHOCDF.quantity : 0;
         let dietary_Fiber = fDaily.FIBTG ? fDaily.FIBTG.quantity : 0;
         let sugars = food.totalNutrients.SUGAR ? food.totalNutrients.SUGAR.quantity : 0;
