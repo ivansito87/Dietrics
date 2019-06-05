@@ -10,10 +10,12 @@
 //     return localStorage.removeItem(authName);
 //   }
 $(document).ready(function(){
-    const name = loadAuth('name');
+    let name = loadAuth('name');
+
     if(name === null){
         window.location.href='/';
     }
+    name = name.charAt(0).toUpperCase() + name.slice(1);
 
     $(".loginAs").text(`Logged In as: ${name}`);
 

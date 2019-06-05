@@ -1,102 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>User Input</title>
+    <title>Dietrics</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:800|Roboto:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+          type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
-<h1 class="whitebg"> Personal Trainer
-    <small>Already A Member? &raquo; <a id="signIn">Sign In</a></small>
-</h1>
-<section class="contact-wrap">
-    <form action="" class="contact-form">
-        <div class="col-sm-12">
-            <h4 class="userError text-light"></h4>
-            <div class="input-block form-group">
-                <label for="">First and Last Name</label>
-                <input type="text" name="txtName" class="form-control" id="name" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="">Your Age</label>
-                <input type="number" class="form-control" id="age" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="">Weight (pound, lb)</label>
-                <input type="number" class="form-control" id="weight" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="">Height (ft)</label>
-                <input type="number" class="form-control" id="height" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <h3 class="text-center text-light my-4">Gender</h3>
-            <div class="radiobtn">
-                <input type="radio" id="male" name="gender" value="male" checked="checked"/>
-                <label for="male">Male</label>
-            </div>
+    <nav class="navbar navbar-light static-top">
+        <div class="container">
+            <button class="h5 square-button px-4 newBtn mx-5" onclick="window.location.href = '/main';">&laquo;&ensp; Go Back</button>
+            <h5 class="text-left text-light loginAs">Logged In as: UserName</h5>
+            <button class="h5 square-button px-5 newBtn mx-5 BtnSignOut"> Sign Out
+            </button>
 
-            <div class="radiobtn">
-                <input type="radio" id="female" name="gender" value="female"/>
-                <label for="female">Female</label>
+        </div>
+    </nav>
+    <header class="masthead3 text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 mx-auto">
+                    <h1 class="mb-5 slogan">Check out this amazing charts!</h1>
+                    <h4 class="font-weight-bolder text-dark secondLogan display-1">
+                        Don't worry you can also search here!</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-xl-10 mx-auto">
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="col-12 col-md-12 mb-2 mb-md-0">
+                                <input type="email" class="form-control form-control-lg text-center"
+                                       placeholder="Get the nutrition for any food.. example one apple..."
+                                       id="inputSearch">
+                            </div>
+                            <div class="col-sm-12 text-center mt-5">
+                                <button class="square-button" id="bttonSearch">Search</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
-        <div class="col-sm-12">
-            <h3 class="text-center text-light my-4">Pregnant?</h3>
-            <div class="radiobtn">
-                <input type="radio" id="isPregnant2" name="isPregnant" value="false" checked="checked"/>
-                <label for="isPregnant2">No</label>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col showcase-img">
+                    <h4 class="font-weight-bolder text-dark secondLogan display-1 text-center mt-5">Macronutrients Grams</h4>
+                    <div class="chart-container d-flex justify-content-center text-dark" style="height: 50vw; ; width: 50vw;">
+                        <canvas class="justify-content-center" height="100%;" width="100%;" style="margin-top: 10px; margin-right: -810px; font-weight: bolder; color: black;" id="myChart"></canvas>
+                    </div>
+                </div>
             </div>
-            <div class="radiobtn">
-                <input type="radio" id="isPregnant1" name="isPregnant" value="true"/>
-                <label for="isPregnant1">Yes</label>
+            <div class="row">
+                <div class="col">
+                        <h4 class="font-weight-bolder text-dark secondLogan display-1 text-center mt-5">Micronutrients Grams</h4>
+                    <div class="chart-container d-flex justify-content-center text-dark" style="height: 50vw; ; width: 50vw;">
+                        <canvas class="justify-content-center" height="100%;" width="100%;" style="margin-top: 10px; margin-right: -810px; font-weight: bolder; color: black;" id="myChart2"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-sm-12 text-center mt-5">
-            <button class="btnContact square-button">Register Now</button>
+        <h1 class="slogan mt-4 mb-3">Thank you for using our app!</h1>
+    </header>
+    <!-- Call to Action -->
+    <section class="call-to-action text-white text-center beforefooter">
+        <div class="overlay"></div>
+        <div class="container beforefooter">
+            <div class="row beforefooter">
+                <div class="col-xl-9 mx-auto">
+                    <h2 class="mb-4">Don't forget to subscribe!</h2>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <input type="email" class="form-control form-control-lg"
+                                       placeholder="Enter your email..." id="emailInput">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <button class="btn btn-block btn-lg btn-primary newBtn">Sign up!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
-        <!-- <div class="col-sm-12">
-             <div class="form-group">
-                 <input type="text" name="username" class="form-control" placeholder="username" value=""
-                        id="username" required/>
-             </div>
-             <div class="form-group">
-                 <input type="password" name="password" class="form-control" placeholder="password" value=""
-                        id="password" required />
-             </div>
-             <div class="form-group">
-                 <input type="password" name="passwordConfirm" class="form-control" placeholder="passwordConfirm" value=""
-                        id="passwordConfirm" required/>
-             </div>
-         </div>-->
-        <!--=================== DO NOT DELETE THIS PASSWORD STUFF ==========================-->
-    </form>
-</section>
-<div class="made-with-love">
-    Made with
-    <i>♥</i> by
-    <a target="_blank" href="http://ivanrendon.dev">Ivan Rendon</a>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="./js/app.js"></script>
-<script src="js/style.js"></script>
+    </section>
+    <!-- Footer -->
+    <footer class="footer text-light">
+        <div class="container">
+            <h6 id="codedAt">Created at the Coding Bootcamp</h6>
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item text-light">
+                            <a href="#">Ivan Rendon</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                            <a href="#">Samuel Dijiani</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                            <a href="#">Ramis Naseem</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                            <a href="#">Miles Moscara</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/style.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./js/FDA.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
