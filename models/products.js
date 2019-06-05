@@ -34,6 +34,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.FLOAT,
             defaultValue: 0
         },
+        transFat: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0
+        },
         saturated: {
             type: DataTypes.FLOAT,
             defaultValue: 0

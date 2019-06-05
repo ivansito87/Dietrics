@@ -148,7 +148,7 @@ $(document).ready(function () {
 
 
     const FoodObj = {
-        servingSize : 0,
+        servingSize : " ",
         calories :0,
         caloriesFromFat :0,
         totalFat :0,        
@@ -190,7 +190,7 @@ $(document).ready(function () {
         e.preventDefault();
         let userInput = $("#inputSearch").val();
         let userInput2 = userInput;
-
+        FoodObj.servingSize += userInput;
 
         //userInput.split(" ").join("%20");
         const searchReqPromise = userInput.split(",").map(function (elt) {
@@ -202,14 +202,14 @@ $(document).ready(function () {
                 console.log(eltFood);
                 // response from the database query  
                 //FoodObj.servingSize += foodName.charAt(0).toUpperCase() + foodName.slice(1));
-                FoodObj.servingSize += 0;
+                
                 FoodObj.calories += Math.ceil(eltFood.calories);
                 FoodObj.caloriesFromFat += Math.ceil(eltFood.caloriesFromFat);
                 FoodObj.totalFat += Math.ceil(eltFood.fat);
                 FoodObj.fatDaily += Math.ceil((eltFood.fat * 100) / 80);
                 FoodObj.saturedFat += Math.ceil(eltFood.saturated);
                 FoodObj.dailySatFat += Math.ceil((eltFood.saturated * 100) / 60);
-                FoodObj.transFat += 0;
+                FoodObj.transFat += Math.ceil(eltFood.transFat);
                 FoodObj.cholesterol += Math.ceil(eltFood.cholesterol);
                 FoodObj.dailyColesterol += (Math.ceil((eltFood.cholesterol * 100) / 300));
                 FoodObj.sodium += Math.ceil(eltFood.sodium) * 5;
@@ -541,7 +541,7 @@ function displayNutrition(food) {
     $("#fatDaily").text(food.fatDaily );
     $("#saturedFat").text(food.saturedFat);
     $("#dailySatFat").text(food.dailySatFat);
-    $("#transFat").text(` 0g`);
+    $("#transFat").text(food.transFat);
     if (food.cholesterol < 1) {
         $("#cholesterol").text(`<   1`);
     } else {
@@ -578,3 +578,4 @@ function displayNutrition(food) {
     $("#minutesOfRunning").text(food.minutesOfRunning );
     $("#minutesOfWalking").text(food.minutesOfWalking );
 }
+
