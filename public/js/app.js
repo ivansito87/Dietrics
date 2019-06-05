@@ -268,6 +268,126 @@ $(document).ready(function () {
     }
 
     function renderCharts(arr, arr2) {
+        var ctx = document.getElementById('myChart3').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'radar',
+            data: {
+                labels: ['Carbs', 'Fat', 'Protein'],
+                datasets: [{
+                    label: 'Recommended',
+                    backgroundColor: "rgba(48,123,255,0.21)",
+                    borderColor: "rgba(13,15,13,0.2)",
+                    borderCapStyle: "rgba(48,123,255,0.26)",
+                    data: [
+                        100,
+                        100,
+                        100,
+                    ]
+                }, {
+                    label: 'Your Intake',
+                    backgroundColor: "rgba(109,23,203,0.71)",
+                    borderColor: "#000",
+                    borderCapStyle: "rgba(48,123,255,0.7)",
+                    data:
+                    arr2
+
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                scale: {
+                    pointLabels: {
+                        fontStyle: "bold",
+                        fontColor: 'black',
+                        fontSize: 15
+                    }
+                },
+                responsive: true,
+                legend: {
+                    position: 'top',
+                    labels: {
+                        fontColor: 'black',
+                        fontSize: 20
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Macronutrients %',
+                    fontColor: 'black',
+                    fontSize: 20
+                },
+                maintainAspectRatio: false
+            }
+        });
+
+        var ctx2 = document.getElementById('myChart4').getContext('2d');
+        var chart2 = new Chart(ctx2, {
+            type: 'radar',
+            data: {
+                labels: ['Vitamin A', 'Vitamin C', 'Vitamin B6', 'Vitamin B12', 'Vitamin D', 'Vitamin E', 'Vitamin K', 'Niacin', 'Riboflavin', 'Thiamin', 'Iron', 'Calcium', 'Folate', 'Phosphorus', 'Magnesium', 'Zinc', 'Potassium'],
+                datasets: [{
+                    label: 'Recommended',
+                    backgroundColor: "rgba(48,123,255,0.2)",
+                    borderColor: "rgba(13,15,13,0.93)",
+                    borderCapStyle: "rgba(48,123,255,0.2)",
+                    data: [
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100,
+                        100
+                    ]
+                }, {
+                    label: 'Your Intake',
+                    backgroundColor: "rgba(109,23,203,0.44)",
+                    borderColor: "rgba(13,15,13,0.86)",
+                    borderCapStyle: "rgba(109,23,203,0.61)",
+                    data: arr,
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                responsive: true,
+                scale: {
+                    pointLabels: {
+                        fontColor: 'black',
+                        fontStyle: "bold",
+                        fontSize: 20
+                    }
+                },
+                legend: {
+                    position: 'top',
+                    labels: {
+                        fontColor: 'black',
+                        fontSize: 20,
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Micronutrients %',
+                    fontColor: 'black',
+                    fontSize: 20
+                },
+                maintainAspectRatio: false
+            }
+        });
+
+        //=================================================
         console.log(arr2)
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
@@ -308,11 +428,11 @@ $(document).ready(function () {
                     display: true,
                     text: 'Macronutrients Grams'
                 },
-                    titleFontColor: {
-                        color: "#fff"
-                    },
+                titleFontColor: {
+                    color: "#fff"
+                },
                 bodyFontColor: {
-                        color: "#fff"
+                    color: "#fff"
                 },
                 maintainAspectRatio: false
             }
@@ -370,8 +490,8 @@ $(document).ready(function () {
                 maintainAspectRatio: false
             }
         });
-    }
 
+    }
 
     function dailyValuesFDA(res) {
         const id = localStorage.getItem("id");
