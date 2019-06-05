@@ -147,39 +147,42 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
-
-
-
-const FoodObj = {
-     servingSize : 0,
-     name : "",
-     calories : 0,
-     caloriesFromFat : 0,
-     carbs : 0,
-     dietary_Fiber : 0,
-     sugars : 0,
-     added_sugars : 0,
-     fat : 0,
-     fatDaily: 0,
-     saturated : 0,
-     cholesterol : 0,
-     polyunsaturated :0,
-     monounsaturated : 0,
-     protein : 0,
-     sodium : 0,
-     potassium : 0,
-     vitamin_A : 0,
-     vitamin_C : 0,
-     vitamin_D : 0,
-     calcium : 0,
-     iron : 0,
-}
+    const FoodObj = {
+        servingSize : 0,
+        calories :0,
+        caloriesFromFat :0,
+        totalFat :0,        
+        saturedFat :0,
+        dailySatFat : 0,
+        fatDaily: 0,     
+        transFat : 0,
+        cholesterol :0,
+        dailyColesterol : 0,
+        sodium :0,
+        dalySodium :0,
+        carbs :0,
+        dalyCarbs : 0,
+        dailyFiber :0,
+        sugars :0,
+        protein :0,
+        vitA :0,
+        vitC :0,
+        vitD :0,
+        calcium :0,
+        iron :0,
+        dailyCaloriesPercent : 0,      
+        dailyCalories :0,
+        carbsPercentage : 0,   
+        carbsInGrams :0,
+        fatPercent : 0,
+        fatInGrams :0,        
+        proteinPercent : 0,   
+        proteinInGrams :0,
+        caloriesToBurn :0,
+        minutesOfExcersise :0,
+        minutesOfRunning :0,
+        minutesOfWalking :0
+    }
 
 
 
@@ -194,43 +197,70 @@ const FoodObj = {
             return searchFood(elt);
         })
 
-        Promise.all(searchReqPromise).then(function(data){
-            data.forEach(function(food){
-                console.log(food);
+        Promise.all(searchReqPromise).then(function (resData) {
+            resData.forEach(function (eltFood) {
+                console.log(eltFood);
+                // response from the database query  
+                //FoodObj.servingSize += foodName.charAt(0).toUpperCase() + foodName.slice(1));
                 FoodObj.servingSize += 0;
-                FoodObj.name += food.name+" ";
-                FoodObj.calories += Math.ceil(food.calories);
-                FoodObj.caloriesFromFat += Math.ceil(food.caloriesFromFat);
-                FoodObj.carbs += 0;
-                FoodObj.dietary_Fiber += 0;
-                FoodObj.sugars += 0;
-                FoodObj.added_sugars += 0;
-                FoodObj.fat += Math.ceil(food.fat);
-                FoodObj.fatDaily
-                FoodObj.saturated += 0;
-                FoodObj.cholesterol += 0;
-                FoodObj.polyunsaturated +=0;
-                FoodObj.monounsaturated += 0;
-                FoodObj.protein += 0;
-                FoodObj.sodium += 0;
-                FoodObj.potassium += 0;
-                FoodObj.vitamin_A += 0;
-                FoodObj.vitamin_C += 0;
-                FoodObj.vitamin_D += 0;
-                FoodObj.calcium += 0;
-                FoodObj.iron += 0
-
-                
+                FoodObj.calories += Math.ceil(eltFood.calories);
+                FoodObj.caloriesFromFat += Math.ceil(eltFood.caloriesFromFat);
+                FoodObj.totalFat += Math.ceil(eltFood.fat);
+                FoodObj.fatDaily += Math.ceil((eltFood.fat * 100) / 80);
+                FoodObj.saturedFat += Math.ceil(eltFood.saturated);
+                FoodObj.dailySatFat += Math.ceil((eltFood.saturated * 100) / 60);
+                FoodObj.transFat += 0;
+                FoodObj.cholesterol += Math.ceil(eltFood.cholesterol);
+                FoodObj.dailyColesterol += (Math.ceil((eltFood.cholesterol * 100) / 300));
+                FoodObj.sodium += Math.ceil(eltFood.sodium) * 5;
+                FoodObj.dalySodium += Math.ceil(eltFood.sodium);
+                FoodObj.carbs += Math.ceil(eltFood.carbs);
+                FoodObj.dalyCarbs += (Math.ceil((eltFood.carbs * 100) / 300));
+                FoodObj.fiber += Math.ceil(eltFood.dietary_Fiber) * 2;
+                FoodObj.dailyFiber += Math.ceil(eltFood.dietary_Fiber);
+                FoodObj.sugars += Math.ceil(eltFood.sugars);
+                FoodObj.protein += Math.ceil(eltFood.protein);
+                FoodObj.vitA += Math.ceil(eltFood.vitamin_A);
+                FoodObj.vitC += Math.ceil(eltFood.vitamin_C);
+                FoodObj.vitD += Math.ceil(eltFood.vitamin_D);
+                FoodObj.calcium += Math.ceil(eltFood.calcium);
+                FoodObj.iron += Math.ceil(eltFood.iron);
+                FoodObj.dailyCaloriesPercent += Math.ceil((eltFood.calories * 100) / 2500);
+                FoodObj.dailyCalories += Math.ceil(eltFood.calories);
+                FoodObj.carbsPercentage += (Math.ceil((eltFood.carbs * 100) / 300));
+                FoodObj.carbsInGrams += Math.ceil(eltFood.carbs);
+                FoodObj.fatPercent += Math.ceil((eltFood.fat * 100) / 80);
+                FoodObj.fatInGrams += Math.ceil(eltFood.fat);
+                FoodObj.proteinPercent += Math.ceil((eltFood.protein * 100) / 56);
+                FoodObj.proteinInGrams += Math.ceil(eltFood.protein);
+                FoodObj.caloriesToBurn += Math.ceil(eltFood.calories);
+                FoodObj.minutesOfExcersise += Math.ceil(eltFood.calories * .15);
+                FoodObj.minutesOfRunning += Math.ceil(eltFood.calories * .1);
+                FoodObj.minutesOfWalking += Math.ceil(eltFood.calories * .2);
             })
+            displayNutrition(FoodObj);
+            
         })
-
-
+        apiCall(userInput2)
+        
 
 
 
 
 
     });
+    function apiCall(searchQuery) {
+        let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=" + searchQuery;
+        $.get({
+            url: queryURL,
+            method: "GET",
+        }).then((responseFromApi) => {
+            console.log(responseFromApi)
+            dailyValuesFDA(responseFromApi);
+    
+    
+        });
+    }
 
     function renderCharts(arr, arr2) {
         console.log(arr2)
@@ -500,66 +530,51 @@ function searchFood(foodRequest) {
     return $.post("/api/query", { foodRequest })
 }
 
-function apiCall(searchQuery) {
-    let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=" + searchQuery;
-    $.get({
-        url: queryURL,
-        method: "GET",
-    }).then((responseFromApi) => {
-        console.log(responseFromApi)
-        dailyValuesFDA(responseFromApi);
 
 
-    });
-}
-
-function displayNutrition(data) {
-    const food = data;
-    console.log('foor details');
-    console.log(food);
-    const foodName = food.name;
-
+function displayNutrition(food) {
     // response from the database query
-    $("#servingSize").text(foodName.charAt(0).toUpperCase() + foodName.slice(1));
-    $("#calories").text(Math.ceil(food.calories));
-    $("#caloriesFromFat").text(Math.ceil(food.caloriesFromFat));
-    $("#totalFat").text(Math.ceil(food.fat));
-    $("#fatDaily").text(Math.ceil((food.fat * 100) / 80));
-    $("#saturedFat").text(Math.ceil(food.saturated));
-    $("#dailySatFat").text(Math.ceil((food.saturated * 100) / 60));
+    $("#servingSize").text(food.servingSize);
+    $("#calories").text(food.calories);
+    $("#caloriesFromFat").text(food.caloriesFromFat);
+    $("#totalFat").text(food.totalFat);
+    $("#fatDaily").text(food.fatDaily );
+    $("#saturedFat").text(food.saturedFat);
+    $("#dailySatFat").text(food.dailySatFat);
     $("#transFat").text(` 0g`);
     if (food.cholesterol < 1) {
         $("#cholesterol").text(`<   1`);
     } else {
-        $("#cholesterol").text(Math.ceil(food.cholesterol));
+        $("#cholesterol").text(food.cholesterol);
     }
-    $("#dailyColesterol").text((Math.ceil((food.cholesterol * 100) / 300)));
-    $("#sodium").text(Math.ceil(food.sodium) * 5);
-    $("#dalySodium").text(Math.ceil(food.sodium));
-    $("#carbs").text(Math.ceil(food.carbs));
-    $("#dalyCarbs").text((Math.ceil((food.carbs * 100) / 300)));
-    $("#fiber").text(Math.ceil(food.dietary_Fiber) * 2);
-    $("#dailyFiber").text(Math.ceil(food.dietary_Fiber));
-    $("#sugars").text(Math.ceil(food.sugars));
-    $("#protein").text(Math.ceil(food.protein));
-    $("#vitA").text(Math.ceil(food.vitamin_A));
-    $("#vitC").text(Math.ceil(food.vitamin_C));
-    $("#calcium").text(Math.ceil(food.calcium));
+    $("#dailyColesterol").text(food.dailyColesterol );
+    $("#sodium").text(food.sodium);
+    $("#dalySodium").text(food.dalySodium);
+    $("#carbs").text(food.carbs);
+    $("#dalyCarbs").text(food.dalyCarbs);
+    $("#fiber").text(food.dailyFiber);
+    $("#dailyFiber").text(food.dailyFiber);
+    $("#sugars").text(food.sugars);
+    $("#protein").text(food.protein);
+    $("#vitA").text(food.vitA);
+    $("#vitC").text(food.vitC);
+    $("#vitD").text(food.vitD);
+    $("#calcium").text(food.calcium);
     if (food.iron < 1) {
         $("#iron").text(`< 1%`);
     } else {
-        $("#iron").text(`${Math.ceil(food.iron)}%`);
+        $("#iron").text(`${food.iron}%`);
     }
-    $("#dailyCaloriesPercent").text(Math.ceil((food.calories * 100) / 2500));
-    $("#dailyCalories").text(Math.ceil(food.calories));
-    $("#carbsPercentage").text((Math.ceil((food.carbs * 100) / 300)));
-    $("#carbsInGrams").text(Math.ceil(food.carbs));
-    $("#fatPercent").text(Math.ceil((food.fat * 100) / 80));
-    $("#fatInGrams").text(Math.ceil(food.fat));
-    $("#proteinPercent").text(Math.ceil((food.protein * 100) / 56));
-    $("#proteinInGrams").text(Math.ceil(food.protein));
-    $("#caloriesToBurn").text(Math.ceil(food.calories));
-    $("#minutesOfExcersise").text(Math.ceil(food.calories * .15));
-    $("#minutesOfRunning").text(Math.ceil(food.calories * .1));
-    $("#minutesOfWalking").text(Math.ceil(food.calories * .2));
+    $("#dailyCaloriesPercent").text(food.dailyCaloriesPercent);
+    $("#dailyCalories").text(food.dailyCalories);
+    $("#carbsPercentage").text(food.carbsPercentage);
+    $("#carbsInGrams").text(food.carbsInGrams);
+    $("#fatPercent").text(food.fatPercent);
+    $("#fatInGrams").text(food.fatInGrams);
+    $("#proteinPercent").text(food.proteinPercent);
+    $("#proteinInGrams").text(food.proteinInGrams);
+    $("#caloriesToBurn").text(food.caloriesToBurn);
+    $("#minutesOfExcersise").text(food.minutesOfExcersise );
+    $("#minutesOfRunning").text(food.minutesOfRunning );
+    $("#minutesOfWalking").text(food.minutesOfWalking );
 }
