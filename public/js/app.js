@@ -190,24 +190,25 @@ $( document ).ready(function() {
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
             // The type of chart we want to create
-            type: 'radar',
+            type: 'bar',
             data: {
                 labels: ['Carbs', 'Fat', 'Protein'],
                 datasets: [{
-                    label: 'Recommended',
-                    backgroundColor: "rgba(0,255,0,0.2)",
-                    borderColor: "rgba(0,255,0,0.2)",
-                    borderCapStyle: "rgba(0,255,0,0.2)",    
+                    label: 'Recommended Grams',
+                    backgroundColor: "#6d17cb",
+                    borderColor: "#2876f9",
+                    borderCapStyle: "#2876f9",
+                    defaultFontSize: "30",
                     data: [
-                        100,
-                        100,
-                        100,
+                        325,
+                        50,
+                        60,
                     ]
                 }, {
-                    label: 'Your Intake',
-                    backgroundColor: "rgba(255,153,51,0.2)",
-                    borderColor: "rgba(255,153,51,0.2)",
-                    borderCapStyle: "rgba(255,153,51,0.2)",    
+                    label: 'Your Intake Grams',
+                    backgroundColor: "rgba(48,123,255,0.93)",
+                    borderColor: "rgb(13,15,13)",
+                    borderCapStyle: "rgba(255,2,0,0.55)",
                     data: 
                         arr2
                     
@@ -218,11 +219,18 @@ $( document ).ready(function() {
             options: {
                 responsive: true,
                 legend: {
-                    position: 'top',
+                    position: 'bottom',
+                    defaultFontSize: 50
                 },
                 title: {
                     display: true,
-                    text: 'Macronutrients %'
+                    text: 'Macronutrients Grams'
+                },
+                    titleFontColor: {
+                        color: "#fff"
+                    },
+                bodyFontColor: {
+                        color: "#fff"
                 },
                 maintainAspectRatio: false
             }
@@ -230,38 +238,38 @@ $( document ).ready(function() {
 
         var ctx2 = document.getElementById('myChart2').getContext('2d');
         var chart2 = new Chart(ctx2, {
-            type: 'radar',
+            type: 'bar',
             data: {
                 labels: ['Vitamin A', 'Vitamin C', 'Vitamin B6', 'Vitamin B12', 'Vitamin D', 'Vitamin E', 'Vitamin K', 'Niacin', 'Riboflavin', 'Thiamin', 'Iron', 'Calcium', 'Folate', 'Phosphorus', 'Magnesium', 'Zinc', 'Potassium'],
                 datasets: [{
-                    label: 'Recommended',
-                    backgroundColor: "rgba(0,255,0,0.2)",
-                    borderColor: "rgba(0,255,0,0.2)",
-                    borderCapStyle: "rgba(0,255,0,0.2)",    
+                    label: 'Recommended Grams',
+                    backgroundColor: "rgba(109,23,203,0.69)",
+                    borderColor: "rgb(0,0,0)",
+                    borderCapStyle: "#2876f9",
                     data: [
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100,
-                        100
+                        80,
+                        70,
+                        60,
+                        40,
+                        30,
+                        20,
+                        30,
+                        60,
+                        20,
+                        40,
+                        30,
+                        10,
+                        50,
+                        35,
+                        65,
+                        30,
+                        80
                     ]
                 }, {
-                    label: 'Your Intake',
-                    backgroundColor: "rgba(255,153,51,0.2)",
-                    borderColor: "rgba(255,153,51,0.2)",
-                    borderCapStyle: "rgba(255,153,51,0.2)",   
+                    label: 'Your Intake Grams',
+                    backgroundColor: "#2876f9",
+                    borderColor: "rgb(0,0,0)",
+                    borderCapStyle: "rgb(0,0,0)",
                     data: arr,
                 }]
             },
@@ -270,11 +278,11 @@ $( document ).ready(function() {
             options: {
                 responsive: true,
                 legend: {
-                    position: 'top',
+                    position: 'bottom',
                 },
                 title: {
                     display: true,
-                    text: 'Micronutrients %'
+                    text: 'Micronutrients Grams'
                 },
                 maintainAspectRatio: false
             }

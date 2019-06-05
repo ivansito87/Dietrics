@@ -1,158 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>User Input</title>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/style.css">
+		<title>User Input</title>
+	</head>
 
 <body>
-<h1 class="whitebg"> User Sign UP
-    <small>Already A Member? &raquo; <a id="signIn">Sign In</a></small>
-</h1>
-<h4 class="userError text-danger text-center"></h4>
-<section class="contact-wrap">
-    
-    <form action="" class="contact-form">
-        <div class="col-sm-12"> 
-            <div class="input-block form-group">
-                <label for="name">First and Last Name</label>
-                <input type="text" name="name" class="form-control" id="name" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="age">Your Age</label>
-                <input type="number" class="form-control" id="age" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="">Weight (pound, lb)</label>
-                <input type="number" class="form-control" id="weight" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="">Height (ft)</label>
-                <input type="number" class="form-control" id="height" required/>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <h3 class="text-center text-light my-4">Gender</h3>
-            <div class="radiobtn">
-                <input type="radio" id="male" name="gender" value="male" checked="checked"/>
-                <label for="male">Male</label>
-            </div>
-
-            <div class="radiobtn">
-                <input type="radio" id="female" name="gender" value="female"/>
-                <label for="female">Female</label>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <h3 class="text-center text-light my-4">Pregnant?</h3>
-            <div class="radiobtn">
-                <input type="radio" id="isPregnant2" name="isPregnant" value="false" checked="checked"/>
-                <label for="isPregnant2">No</label>
-            </div>
-            <div class="radiobtn">
-                <input type="radio" id="isPregnant1" name="isPregnant" value="true"/>
-                <label for="isPregnant1">Yes</label>
-            </div>
-        </div>
-
-        <div class="col-sm-12"> 
-            <div class="input-block form-group">
-                <label for="username1">username</label>
-                <input type="text" name="username1" class="form-control" id="username1" required/>
-            </div>
-        </div>
-        
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="password1">password</label>
-                <input type="password" class="form-control" id="password1" required/>
-            </div>
-        </div>
-        
-        <div class="col-sm-12">
-            <div class="input-block">
-                <label for="passwordConfirm">Confirm your password </label>
-                <input type="password" class="form-control" id="passwordConfirm" required/>
-            </div>
-        </div>
-    </div>
-   
-        <div class="col-sm-12 text-center mt-5">
-            <button class="btnContact square-button" >Register Now</button>
-        </div>
-
-
-    </form>
-</section>
-<div class="made-with-love">
-    Made with
-    <i>♥</i> by
-    <a target="_blank" href="http://ivanrendon.dev">Ivan Rendon ... and the name of the team...</a>
-    
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="./js/style.js"></script>
-<script src="./js/app.js"></script>
+	<h1 class="whitebg"> User Sign UP
+		<small>Already A Member? &raquo; <a id="signIn">Sign In</a></small>
+	</h1>
+	<h4 class="userError text-danger text-center"></h4>
+	<section class="contact-wrap">
+		<form action="" class="contact-form">
+			<div class="col-sm-12">
+				<div class="input-block form-group">
+					<label for="name">First and Last Name</label>
+					<input type="text" name="name" class="form-control" id="name" required/>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="input-block">
+					<label for="age">Your Age</label>
+					<input type="number" class="form-control" id="age" required/>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="input-block">
+					<label for="">Weight (pound, lb)</label>
+					<input type="number" class="form-control" id="weight" required/>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="input-block">
+					<label for="">Height (ft)</label>
+					<input type="number" class="form-control" id="height" required/>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="col-sm-12">
+					<div class="input-block form-group">
+						<label for="username1">username</label>
+						<input type="text" name="username1" class="form-control" id="username1" required/>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="input-block">
+						<label for="password1">password</label>
+						<input type="password" class="form-control" id="password1" required/>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="input-block">
+						<label for="passwordConfirm">Confirm your password </label>
+						<input type="password" class="form-control" id="passwordConfirm" required/>
+					</div>
+				</div>
+			</div>
+			<h3 class="text-center text-light my-4">Gender</h3>
+			<div class="radiobtn">
+				<input type="radio" id="male" name="gender" value="male" checked="checked"/>
+				<label for="male">Male</label>
+			</div>
+			<div class="radiobtn">
+				<input type="radio" id="female" name="gender" value="female"/>
+				<label for="female">Female</label>
+			</div>
+			</div>
+			<div class="col-sm-12">
+				<h3 class="text-center text-light my-4">Pregnant?</h3>
+				<div class="radiobtn">
+					<input type="radio" id="isPregnant2" name="isPregnant" value="false" checked="checked"/>
+					<label for="isPregnant2">No</label>
+				</div>
+				<div class="radiobtn">
+					<input type="radio" id="isPregnant1" name="isPregnant" value="true"/>
+					<label for="isPregnant1">Yes</label>
+				</div>
+			</div>
+			<div class="col-sm-12 text-center mt-5">
+				<button class="btnContact square-button">Register Now</button>
+			</div>
+		</form>
+	</section>
+	<div class="made-with-love">
+		Made with
+		<i>♥</i> by
+		<a target="_blank" href="http://ivanrendon.dev">Ivan Rendon</a>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="./js/style.js"></script>
+	<script src="./js/app.js"></script>
 
 </body>
 <!-- The Modal -->
 <div class="modal fade" id="loginModal">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center">
-        <!-- Modal body -->
-        <div class="modal-body">
-          <div class="modal-header">
-            <button type="button" class="close btn btn-sm" data-dismiss="modal">&times;</button>
-          </div>
-          <div>
-            <div class="d-inline-flex align-center">
-              <h3>Login</h3>
-            </div>
-            <p class="signError text-danger"></p>
-          </div>
-          <form>
-            <div class="form-group">
-              <label for="username">username:</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
-            </div>
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter password" name="pswd">
-            </div>
-  
-            <div class="btn-group">
-              <button type="submit" class="btn btn-primary btn-block loginSubmit">Submit</button>
-            </div>
-            <div class="form-group form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember" id="rememberMe" checked> Remember me
-                <a href="">Forgot password</a>
-              </label> 
-              
-            </div>
-            
-            <div>
-  
-            </div>
-          </form>
-        </div>
-  
-  
-      </div>
-    </div>
-  </div>
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content text-center">
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="modal-header">
+					<button type="button" class="close btn btn-sm" data-dismiss="modal">&times;</button>
+				</div>
+				<div>
+					<div class="d-inline-flex align-center">
+						<h3>Login</h3>
+					</div>
+					<p class="signError text-danger"></p>
+				</div>
+				<form>
+					<div class="form-group">
+						<label for="username">username:</label>
+						<input type="text" class="form-control" id="username" placeholder="Enter username"
+						       name="username">
+					</div>
+					<div class="form-group">
+						<label for="password">Password:</label>
+						<input type="password" class="form-control" id="password" placeholder="Enter password"
+						       name="pswd">
+					</div>
+					<div class="form-group form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" name="remember" id="rememberMe" checked>
+							Remember me
+						</label>
+					</div>
+					<div class="btn-group">
+						<button type="submit" class="btn btn-primary btn-block loginSubmit">Sign In</button>
+					</div>
+					<div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
 
 </html>
