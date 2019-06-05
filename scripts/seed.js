@@ -40,6 +40,7 @@ function normalized(foods) {
             sugars: parseFloat(sugars).toFixed(2),
             added_sugars: parseFloat(added_sugars).toFixed(2),
             fat: parseFloat(fat).toFixed(2),
+            transFat: parseFloat(transFat).toFixed(2),
             saturated: parseFloat(saturated).toFixed(2),
             polyunsaturated: parseFloat(polyunsaturated).toFixed(2),
             monounsaturated: parseFloat(monounsaturated).toFixed(2),
