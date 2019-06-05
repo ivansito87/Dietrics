@@ -18,6 +18,7 @@ function normalized(foods) {
         let sugars = food.totalNutrients.SUGAR ? food.totalNutrients.SUGAR.quantity : 0;
         let added_sugars = fDaily["SUGAR.added"] ? fDaily["SUGAR.added"].quantity : 0;
         let fat = fDaily.FAT ? fDaily.FAT.quantity : 0;
+        let transFat = food.totalNutrients.FATRN ? food.totalNutrients.FATRN.quantity : 0;
         let saturated = fDaily.FASAT ? fDaily.FASAT.quantity : 0;
         let cholesterol = food.totalNutrients.CHOLE ? food.totalNutrients.CHOLE.quantity : 0;
         let polyunsaturated = fDaily.FAPU ? fDaily.FAPU.quantity : 0;
@@ -39,6 +40,7 @@ function normalized(foods) {
             sugars: parseFloat(sugars).toFixed(2),
             added_sugars: parseFloat(added_sugars).toFixed(2),
             fat: parseFloat(fat).toFixed(2),
+            transFat: parseFloat(transFat).toFixed(2),
             saturated: parseFloat(saturated).toFixed(2),
             polyunsaturated: parseFloat(polyunsaturated).toFixed(2),
             monounsaturated: parseFloat(monounsaturated).toFixed(2),
