@@ -207,7 +207,7 @@ $( document ).ready(function() {
                     label: 'Your Intake',
                     backgroundColor: "rgba(255,153,51,0.2)",
                     borderColor: "rgba(255,153,51,0.2)",
-                    borderCapStyle: "rgba(255,153,51,0.2)",    
+                    borderCapStyle: "rgba(255,153,51,0.2)",  
                     data: 
                         arr2
                     
@@ -216,13 +216,26 @@ $( document ).ready(function() {
 
             // Configuration options go here
             options: {
+                scale: {
+                    pointLabels: {
+                       fontStyle: "bold",
+                       fontColor: 'black',
+                       fontSize: 15
+                    }
+                },            
                 responsive: true,
                 legend: {
                     position: 'top',
-                },
+                    labels: {
+                        fontColor: 'black',
+                        fontSize: 20
+                    }
+                },                
                 title: {
                     display: true,
-                    text: 'Macronutrients %'
+                    text: 'Macronutrients %',
+                    fontColor: 'black',
+                    fontSize: 20
                 },
                 maintainAspectRatio: false
             }
@@ -267,18 +280,32 @@ $( document ).ready(function() {
             },
 
             // Configuration options go here
-            options: {
+            options: {          
                 responsive: true,
+                scale: {
+                pointLabels: {
+                    fontColor: 'black',
+                    fontStyle: "bold",
+                    fontSize: 15
+                }
+            },
                 legend: {
                     position: 'top',
-                },
+                    labels: {
+                        fontColor: 'black',
+                        fontSize: 20,
+                    }
+                },                
                 title: {
                     display: true,
-                    text: 'Micronutrients %'
+                    text: 'Micronutrients %',
+                    fontColor: 'black',
+                    fontSize: 20
                 },
                 maintainAspectRatio: false
             }
         });
+        Chart.defaults.global.defaultFontSize = 10;
     }
 
 
