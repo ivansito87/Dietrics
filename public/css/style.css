@@ -161,6 +161,10 @@ h1 {
     font-family: 'Poppins', sans-serif !important;
 }
 
+#chartsButton:hover {
+    background-color: white;
+    color: black;
+}
 
 .masthead h1 {
     font-size: 6rem;
@@ -695,7 +699,7 @@ footer.footer {
     animation: one 500ms linear 0ms infinite normal none;
 }
 
-#bttonSearch {
+#bttonSearch, #chartsButton {
     color: #000;
     font-size: 26px;
     text-transform: uppercase;
@@ -716,7 +720,7 @@ footer.footer {
     background-image: linear-gradient(to right, #2876f9 0%, #6d17cb 74%);
 }
 
-#bttonSearch:hover, #bttonSearch:focus {
+#bttonSearch:hover, #chartsButton:hover, #chartsButton:focus, #bttonSearch:focus {
     color: #fff;
     background-color: #D7DAE5;
     animation: one 500ms linear 0ms infinite normal none;

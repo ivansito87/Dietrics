@@ -1,125 +1,128 @@
-const loadAuth = (authName) =>{
+const loadAuth = (authName) => {
     return localStorage.getItem(authName);
-  }
-const saveAuth = (authName, authValue) =>{
+}
+const saveAuth = (authName, authValue) => {
     return localStorage.setItem(authName, authValue);
-  }
-  
-const clearAuth = (authName) =>{
+}
+
+const clearAuth = (authName) => {
     return localStorage.removeItem(authName);
-  }
+}
 
-$( document ).ready(function() {
+$(document).ready(function () {
     //sign up
-  $(".btnContact").click(function(event){
-      event.preventDefault();
-      const name = $("#name").val();
-      const age = $("#age").val();
-      const weight = $("#weight").val();
-      const height = $("#height").val();
-      const gender = $("input[type='radio'][name='gender']:checked").val();
-      const isPregnant = ($("input[type='radio'][name='isPregnant']:checked").val() === "true")? true: false; 
-      const username = $("#username1").val();
-      const password = $("#password1").val();
-      const passwordConfirm = $("#passwordConfirm").val();
-      console.log(password, passwordConfirm);
-      if(password !== passwordConfirm){
-        $(".userError").text("Password not match!");
-        console.log('password not match!');
-      }else{
-        const newUser = {
-            name: name,
-            username: username,
-            password: password,
-            age: age,
-            gender: gender,
-            height: height,
-            weight: weight,
-            isPregnant: isPregnant
-        }
-        console.log("post checked passed 1");
-        console.log(newUser);
-    //user validation on empty field and non defined field input. 
-        const requiredField = [
-            {field: "name", val: name}, 
-            {field: "username1", val: username},  
-            {field: "password1", val: password},
-            {field: "age", val: age},
-            { field: "height", val: height},
-            { field: "weight", val: weight} ];
+    $(".btnContact").click(function (event) {
+        event.preventDefault();
+        const name = $("#name").val();
+        const age = $("#age").val();
+        const weight = $("#weight").val();
+        const height = $("#height").val();
+        const gender = $("input[type='radio'][name='gender']:checked").val();
+        const isPregnant = ($("input[type='radio'][name='isPregnant']:checked").val() === "true") ? true : false;
+        const username = $("#username1").val();
+        const password = $("#password1").val();
+        const passwordConfirm = $("#passwordConfirm").val();
+        console.log(password, passwordConfirm);
+        if (password !== passwordConfirm) {
+            $(".userError").text("Password not match!");
+            console.log('password not match!');
+        } else {
+            const newUser = {
+                name: name,
+                username: username,
+                password: password,
+                age: age,
+                gender: gender,
+                height: height,
+                weight: weight,
+                isPregnant: isPregnant
+            }
+            console.log("post checked passed 1");
+            console.log(newUser);
+            //user validation on empty field and non defined field input. 
+            const requiredField = [
+                { field: "name", val: name },
+                { field: "username1", val: username },
+                { field: "password1", val: password },
+                { field: "age", val: age },
+                { field: "height", val: height },
+                { field: "weight", val: weight }];
 
-        let requiredFieldFlag = false;
-        requiredField.forEach(field => {
-            if(field.val === "" || field === undefined){
-                requiredFieldFlag = true;
-                $("#"+field.field).prev().css({"color": "red"});
-                console.log("required field!");
-            }else{
-                $("#"+field.field).prev().css({"color": "#fff"});
-                $(".userError").text("");
-            } 
-        })
-
-        if(requiredFieldFlag){
-            $(".userError").text("Please, fill out all the field");
-        }else{
-            $.post("/api/user/post", newUser)
-            .then(function(res){
-                $("#username1").prev().css({"color": "#fff"});
-                $(".userError").text("");
-                console.log(JSON.stringify(res));
-                $("#username").val(res.username);
-                $("#loginModal").modal({backdrop: 'static'});
-
-
+            let requiredFieldFlag = false;
+            requiredField.forEach(field => {
+                if (field.val === "" || field === undefined) {
+                    requiredFieldFlag = true;
+                    $("#" + field.field).prev().css({ "color": "red" });
+                    console.log("required field!");
+                } else {
+                    $("#" + field.field).prev().css({ "color": "#fff" });
+                    $(".userError").text("");
+                }
             })
-            .catch(function(error){
-                if(error.status == "400"){
-                    $("#username1").prev().css({"color": "red"});
-                    $(".userError").text("username already taken!");
-                }else{
-                    console.log('Internal Error');
-                }   
-            })
+
+            if (requiredFieldFlag) {
+                $(".userError").text("Please, fill out all the field");
+            } else {
+                $.post("/api/user/post", newUser)
+                    .then(function (res) {
+                        $("#username1").prev().css({ "color": "#fff" });
+                        $(".userError").text("");
+                        console.log(JSON.stringify(res));
+                        $("#username").val(res.username);
+                        $("#loginModal").modal({ backdrop: 'static' });
+
+
+                    })
+                    .catch(function (error) {
+                        if (error.status == "400") {
+                            $("#username1").prev().css({ "color": "red" });
+                            $(".userError").text("username already taken!");
+                        } else {
+                            console.log('Internal Error');
+                        }
+                    })
+            }
         }
-      }
 
 
-  })  
+    })
 
 
-  //sign in modal
-  $("#signIn").click(function(event){
-      let remUsername2 = localStorage.getItem("remUser");
-      console.log(remUsername2);
-      if(remUsername2){
-          $("#username").val(remUsername2);
-      }
-      $("#loginModal").modal({backdrop: 'static'});
-  })
+    //sign in modal
+    $("#signIn").click(function (event) {
+        let remUsername2 = localStorage.getItem("remUser");
+        console.log(remUsername2);
+        if (remUsername2) {
+            let remUsername2 = localStorage.getItem("remUser");
+            remUsername2 = remUsername2.charAt(0).toUpperCase() + remUsername2.slice(1);
+            $("#username").val(remUsername2);
 
-  //sign in
-  $(".loginSubmit").click(function(event){
-      event.preventDefault();
-      const username = $("#username").val().trim();
-      const password = $("#password").val().trim();
-      const remUsername = document.getElementById("rememberMe").checked;
-      if(remUsername){
-          localStorage.setItem("remUser", username);
-      }else{
-        localStorage.removeItem("remUser");
-      }
-      console.log('user is about to loggin!');
-      console.log("username: "+username);
-      const token = btoa(`${username}:${password}`);
-      $.ajax({
-          method:'POST',
-          url: '/api/auth/login',
-          beforeSend: function(xhr){
-              xhr.setRequestHeader('Authorization', `Basic ${token}`);
-              
-          }
-        }).done(function(authData){
+        }
+        $("#loginModal").modal({ backdrop: 'static' });
+    })
+
+    //sign in
+    $(".loginSubmit").click(function (event) {
+        event.preventDefault();
+        const username = $("#username").val().trim();
+        const password = $("#password").val().trim();
+        const remUsername = document.getElementById("rememberMe").checked;
+        if (remUsername) {
+            localStorage.setItem("remUser", username);
+        } else {
+            localStorage.removeItem("remUser");
+        }
+        console.log('user is about to loggin!');
+        console.log("username: " + username);
+        const token = btoa(`${username}:${password}`);
+        $.ajax({
+            method: 'POST',
+            url: '/api/auth/login',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Basic ${token}`);
+
+            }
+        }).done(function (authData) {
             console.log('Successfully login!');
             console.log(authData);
             //save user info to local storage so that your can access it
@@ -127,63 +130,142 @@ $( document ).ready(function() {
             saveAuth('token', authData.authToken);
             saveAuth('name', authData.user.name);
             $("#loginModal").modal('hide');
-            window.location.href='/main'; 
-            
-        }).fail(function(err){
-            if((err.status) === 401){
+            window.location.href = '/main';
+
+        }).fail(function (err) {
+            if ((err.status) === 401) {
                 console.log('401 error', err.status);
                 $(".signError").text('Username or password invalid!');
-            }else{
+            } else {
                 console.log('500 error', err.status);
                 console.log(err);
             }
-            
-          
+
+
         });
-      
-  })
+
+    })
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+    const InitialFoodObject = {
+        servingSize : " ",
+        calories :0,
+        caloriesFromFat :0,
+        totalFat :0,        
+        saturedFat :0,
+        dailySatFat : 0,
+        fatDaily: 0,     
+        transFat : 0,
+        cholesterol :0,
+        dailyColesterol : 0,
+        sodium :0,
+        dalySodium :0,
+        carbs :0,
+        dalyCarbs : 0,
+        dailyFiber :0,
+        sugars :0,
+        protein :0,
+        vitA :0,
+        vitC :0,
+        vitD :0,
+        calcium :0,
+        iron :0,
+        dailyCaloriesPercent : 0,      
+        dailyCalories :0,
+        carbsPercentage : 0,   
+        carbsInGrams :0,
+        fatPercent : 0,
+        fatInGrams :0,        
+        proteinPercent : 0,   
+        proteinInGrams :0,
+        caloriesToBurn :0,
+        minutesOfExcersise :0,
+        minutesOfRunning :0,
+        minutesOfWalking :0
+    }
 
 
 
     $("#bttonSearch").on("click", (e) => {
         e.preventDefault();
+        let FoodObj = Object.assign({}, InitialFoodObject);
         let userInput = $("#inputSearch").val();
         let userInput2 = userInput;
+        FoodObj.servingSize += userInput;
 
-        
-        userInput.split(",").join("%20");
-        searchFood(userInput);
+        //userInput.split(" ").join("%20");
+        const searchReqPromise = userInput.split(",").map(function (elt) {
+            return searchFood(elt);
+        })
+
+        Promise.all(searchReqPromise).then(function (resData) {
+            resData.forEach(function (eltFood) {
+                console.log(eltFood);
+                // response from the database query  
+                //FoodObj.servingSize += foodName.charAt(0).toUpperCase() + foodName.slice(1));
+                
+                FoodObj.calories += Math.ceil(eltFood.calories);
+                FoodObj.caloriesFromFat += Math.ceil(eltFood.caloriesFromFat);
+                FoodObj.totalFat += Math.ceil(eltFood.fat);
+                FoodObj.fatDaily += Math.ceil((eltFood.fat * 100) / 80);
+                FoodObj.saturedFat += Math.ceil(eltFood.saturated);
+                FoodObj.dailySatFat += Math.ceil((eltFood.saturated * 100) / 60);
+                FoodObj.transFat += Math.ceil(eltFood.transFat);
+                FoodObj.cholesterol += Math.ceil(eltFood.cholesterol);
+                FoodObj.dailyColesterol += (Math.ceil((eltFood.cholesterol * 100) / 300));
+                FoodObj.sodium += Math.ceil(eltFood.sodium) * 5;
+                FoodObj.dalySodium += Math.ceil(eltFood.sodium);
+                FoodObj.carbs += Math.ceil(eltFood.carbs);
+                FoodObj.dalyCarbs += (Math.ceil((eltFood.carbs * 100) / 300));
+                FoodObj.fiber += Math.ceil(eltFood.dietary_Fiber) * 2;
+                FoodObj.dailyFiber += Math.ceil(eltFood.dietary_Fiber);
+                FoodObj.sugars += Math.ceil(eltFood.sugars);
+                FoodObj.protein += Math.ceil(eltFood.protein);
+                FoodObj.vitA += Math.ceil(eltFood.vitamin_A);
+                FoodObj.vitC += Math.ceil(eltFood.vitamin_C);
+                FoodObj.vitD += Math.ceil(eltFood.vitamin_D);
+                FoodObj.calcium += Math.ceil(eltFood.calcium);
+                FoodObj.iron += Math.ceil(eltFood.iron);
+                FoodObj.dailyCaloriesPercent += Math.ceil((eltFood.calories * 100) / 2500);
+                FoodObj.dailyCalories += Math.ceil(eltFood.calories);
+                FoodObj.carbsPercentage += (Math.ceil((eltFood.carbs * 100) / 300));
+                FoodObj.carbsInGrams += Math.ceil(eltFood.carbs);
+                FoodObj.fatPercent += Math.ceil((eltFood.fat * 100) / 80);
+                FoodObj.fatInGrams += Math.ceil(eltFood.fat);
+                FoodObj.proteinPercent += Math.ceil((eltFood.protein * 100) / 56);
+                FoodObj.proteinInGrams += Math.ceil(eltFood.protein);
+                FoodObj.caloriesToBurn += Math.ceil(eltFood.calories);
+                FoodObj.minutesOfExcersise += Math.ceil(eltFood.calories * .15);
+                FoodObj.minutesOfRunning += Math.ceil(eltFood.calories * .1);
+                FoodObj.minutesOfWalking += Math.ceil(eltFood.calories * .2);
+            });
+            displayNutrition(FoodObj);
+            
+        });
+        apiCall(userInput2)
+
+        $("#inputSearch").val("");
 
 
-        let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=" + userInput2;
+
+
+
+    });
+    function apiCall(searchQuery) {
+        let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=" + searchQuery;
         $.get({
             url: queryURL,
             method: "GET",
         }).then((responseFromApi) => {
             console.log(responseFromApi)
             dailyValuesFDA(responseFromApi);
-
-
+    
+    
         });
-
-
-        
-    });
+    }
 
     function renderCharts(arr, arr2) {
         console.log(arr2)
@@ -205,13 +287,13 @@ $( document ).ready(function() {
                         60,
                     ]
                 }, {
+
                     label: 'Your Intake Grams',
                     backgroundColor: "rgba(48,123,255,0.93)",
                     borderColor: "rgb(13,15,13)",
                     borderCapStyle: "rgba(255,2,0,0.55)",
-                    data: 
-                        arr2
-                    
+                    data: arr2,
+
                 }]
             },
 
@@ -270,6 +352,7 @@ $( document ).ready(function() {
                     backgroundColor: "#2876f9",
                     borderColor: "rgb(0,0,0)",
                     borderCapStyle: "rgb(0,0,0)",
+
                     data: arr,
                 }]
             },
@@ -293,28 +376,28 @@ $( document ).ready(function() {
     function dailyValuesFDA(res) {
         const id = localStorage.getItem("id");
         console.log(id);
-        $.get("/api/user/"+id)
-        .then(function(user){
-            console.log(user);
-            age = user.age;
-            isPregnantCheckedish = user.isPregnant;
-            console.log(age);
-            console.log(isPregnantCheckedish);
-                    if (age >= 4 && !isPregnantCheckedish) {
-                        return olderThan4(res);
-                    }
+        $.get("/api/user/" + id)
+            .then(function (user) {
+                console.log(user);
+                age = user.age;
+                isPregnantCheckedish = user.isPregnant;
+                console.log(age);
+                console.log(isPregnantCheckedish);
+                if (age >= 4 && !isPregnantCheckedish) {
+                    return olderThan4(res);
+                }
 
-                    if (age > 1 && age <= 3) {
-                        return between1And3(res);
-                    }
-                    if (age <= 1) {
-                        return lessThan1(res);
-                  }
-      
-                    if (isPregnantCheckedish) {
-                        return isPregnant(res);
-                    }
-        });
+                if (age > 1 && age <= 3) {
+                    return between1And3(res);
+                }
+                if (age <= 1) {
+                    return lessThan1(res);
+                }
+
+                if (isPregnantCheckedish) {
+                    return isPregnant(res);
+                }
+            });
 
     }
 
@@ -341,9 +424,9 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
-        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF ? responseFromApi.totalDaily.CHOCDF.quantity : 0)
+        var fatPercent = (responseFromApi.totalDaily.FAT ? responseFromApi.totalDaily.FAT.quantity : 0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT ? responseFromApi.totalDaily.PROCNT.quantity : 0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -374,9 +457,9 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
-        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF ? responseFromApi.totalDaily.CHOCDF.quantity : 0)
+        var fatPercent = (responseFromApi.totalDaily.FAT ? responseFromApi.totalDaily.FAT.quantity : 0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT ? responseFromApi.totalDaily.PROCNT.quantity : 0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -407,10 +490,10 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-     
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
-        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
+
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF ? responseFromApi.totalDaily.CHOCDF.quantity : 0)
+        var fatPercent = (responseFromApi.totalDaily.FAT ? responseFromApi.totalDaily.FAT.quantity : 0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT ? responseFromApi.totalDaily.PROCNT.quantity : 0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -442,9 +525,9 @@ $( document ).ready(function() {
         const intArr = arr.map(function (i) {
             return parseInt(i)
         })
-        var carbPercent = (responseFromApi.totalDaily.CHOCDF?responseFromApi.totalDaily.CHOCDF.quantity:0)
-        var fatPercent = (responseFromApi.totalDaily.FAT?responseFromApi.totalDaily.FAT.quantity:0)
-        var proteinPercent = (responseFromApi.totalDaily.PROCNT?responseFromApi.totalDaily.PROCNT.quantity:0)
+        var carbPercent = (responseFromApi.totalDaily.CHOCDF ? responseFromApi.totalDaily.CHOCDF.quantity : 0)
+        var fatPercent = (responseFromApi.totalDaily.FAT ? responseFromApi.totalDaily.FAT.quantity : 0)
+        var proteinPercent = (responseFromApi.totalDaily.PROCNT ? responseFromApi.totalDaily.PROCNT.quantity : 0)
         const arr2 = [carbPercent, fatPercent, proteinPercent];
         const intArr2 = arr2.map(function (i) {
             return parseInt(i)
@@ -454,60 +537,67 @@ $( document ).ready(function() {
     }
 
 
+    $('.contact-form').find('.form-control').focus(function() {
+        $(this).parent('.input-block').addClass('focus');
+        $(this).parent().find('label').animate({
+            'top': '10px',
+            'fontSize': '14px'
+        }, 300);
+    });
+
 });
 
 
 function searchFood(foodRequest) {
-    $.post("/api/query", {foodRequest})
-        .then(function (data) {    //<---------- Response from database
-
-            const food = data;
-            console.log('foor details');
-            console.log(food);
-            const foodName = food.name;
-
-            // response from the database query
-            $("#servingSize").text(foodName.charAt(0).toUpperCase() + foodName.slice(1));
-            $("#calories").text(Math.ceil(food.calories));
-            $("#caloriesFromFat").text(Math.ceil(food.caloriesFromFat));
-            $("#totalFat").text(Math.ceil(food.fat));
-            $("#fatDaily").text(Math.ceil((food.fat * 100) / 80));
-            $("#saturedFat").text(Math.ceil(food.saturated));
-            $("#dailySatFat").text(Math.ceil((food.saturated * 100) / 60));
-            $("#transFat").text(` 0g`);
-            if (food.cholesterol < 1) {
-                $("#cholesterol").text(`<   1`);
-            } else {
-                $("#cholesterol").text(Math.ceil(food.cholesterol));
-            }
-            $("#dailyColesterol").text((Math.ceil((food.cholesterol * 100)/300)));
-            $("#sodium").text(Math.ceil(food.sodium) * 5);
-            $("#dalySodium").text(Math.ceil(food.sodium));
-            $("#carbs").text(Math.ceil(food.carbs));
-            $("#dalyCarbs").text((Math.ceil((food.carbs * 100) / 300)));
-            $("#fiber").text(Math.ceil(food.dietary_Fiber) * 2);
-            $("#dailyFiber").text(Math.ceil(food.dietary_Fiber));
-            $("#sugars").text(Math.ceil(food.sugars));
-            $("#protein").text(Math.ceil(food.protein));
-            $("#vitA").text(Math.ceil(food.vitamin_A));
-            $("#vitC").text(Math.ceil(food.vitamin_C));
-            $("#calcium").text(Math.ceil(food.calcium));
-            if (food.iron < 1) {
-                $("#iron").text(`< 1%`);
-            } else {
-                $("#iron").text(`${Math.ceil(food.iron)}%`);
-            }
-            $("#dailyCaloriesPercent").text(Math.ceil((food.calories * 100)/2500));
-            $("#dailyCalories").text(Math.ceil(food.calories));
-            $("#carbsPercentage").text((Math.ceil((food.carbs * 100) / 300)));
-            $("#carbsInGrams").text(Math.ceil(food.carbs));
-            $("#fatPercent").text(Math.ceil((food.fat * 100) / 80));
-            $("#fatInGrams").text(Math.ceil(food.fat));
-            $("#proteinPercent").text(Math.ceil((food.protein * 100)/56));
-            $("#proteinInGrams").text(Math.ceil(food.protein));
-            $("#caloriesToBurn").text(Math.ceil(food.calories));
-            $("#minutesOfExcersise").text(Math.ceil(food.calories * .15));
-            $("#minutesOfRunning").text(Math.ceil(food.calories * .1));
-            $("#minutesOfWalking").text(Math.ceil(food.calories * .2));
-        });
+    return $.post("/api/query", { foodRequest })
 }
+
+
+
+function displayNutrition(food) {
+    // response from the database query
+    $("#servingSize").text(food.servingSize);
+    $("#calories").text(food.calories);
+    $("#caloriesFromFat").text(food.caloriesFromFat);
+    $("#totalFat").text(food.totalFat);
+    $("#fatDaily").text(food.fatDaily );
+    $("#saturedFat").text(food.saturedFat);
+    $("#dailySatFat").text(food.dailySatFat);
+    $("#transFat").text(food.transFat);
+    if (food.cholesterol < 1) {
+        $("#cholesterol").text(`<   1`);
+    } else {
+        $("#cholesterol").text(food.cholesterol);
+    }
+    $("#dailyColesterol").text(food.dailyColesterol );
+    $("#sodium").text(food.sodium);
+    $("#dalySodium").text(food.dalySodium);
+    $("#carbs").text(food.carbs);
+    $("#dalyCarbs").text(food.dalyCarbs);
+    $("#fiber").text(food.dailyFiber);
+    $("#dailyFiber").text(food.dailyFiber);
+    $("#sugars").text(food.sugars);
+    $("#protein").text(food.protein);
+    $("#vitA").text(food.vitA);
+    $("#vitC").text(food.vitC);
+    $("#vitD").text(food.vitD);
+    $("#calcium").text(food.calcium);
+    if (food.iron < 1) {
+        $("#iron").text(`< 1%`);
+    } else {
+        $("#iron").text(`${food.iron}%`);
+    }
+    $("#dailyCaloriesPercent").text(food.dailyCaloriesPercent);
+    $("#dailyCalories").text(food.dailyCalories);
+    $("#carbsPercentage").text(food.carbsPercentage);
+    $("#carbsInGrams").text(food.carbsInGrams);
+    $("#fatPercent").text(food.fatPercent);
+    $("#fatInGrams").text(food.fatInGrams);
+    $("#proteinPercent").text(food.proteinPercent);
+    $("#proteinInGrams").text(food.proteinInGrams);
+    $("#caloriesToBurn").text(food.caloriesToBurn);
+    $("#minutesOfExcersise").text(food.minutesOfExcersise );
+    $("#minutesOfRunning").text(food.minutesOfRunning );
+    $("#minutesOfWalking").text(food.minutesOfWalking );
+}
+
