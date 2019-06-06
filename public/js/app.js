@@ -276,7 +276,7 @@ $(document).ready(function () {
                 labels: ['Carbs', 'Fat', 'Protein'],
                 datasets: [{
                     label: 'Recommended',
-                    backgroundColor: "rgba(48,123,255,0.21)",
+                    backgroundColor: "rgba(175,217,247,0.42)",
                     borderColor: "rgba(13,15,13,0.2)",
                     borderCapStyle: "rgba(48,123,255,0.26)",
                     data: [
@@ -286,7 +286,7 @@ $(document).ready(function () {
                     ]
                 }, {
                     label: 'Your Intake',
-                    backgroundColor: "rgba(109,23,203,0.71)",
+                    backgroundColor: "rgba(255,217,128,0.54)",
                     borderColor: "#000",
                     borderCapStyle: "rgba(48,123,255,0.7)",
                     data:
@@ -329,7 +329,7 @@ $(document).ready(function () {
                 labels: ['Vitamin A', 'Vitamin C', 'Vitamin B6', 'Vitamin B12', 'Vitamin D', 'Vitamin E', 'Vitamin K', 'Niacin', 'Riboflavin', 'Thiamin', 'Iron', 'Calcium', 'Folate', 'Phosphorus', 'Magnesium', 'Zinc', 'Potassium'],
                 datasets: [{
                     label: 'Recommended',
-                    backgroundColor: "rgba(48,123,255,0.2)",
+                    backgroundColor: "rgba(175,217,247,0.5)",
                     borderColor: "rgba(13,15,13,0.93)",
                     borderCapStyle: "rgba(48,123,255,0.2)",
                     data: [
@@ -353,7 +353,7 @@ $(document).ready(function () {
                     ]
                 }, {
                     label: 'Your Intake',
-                    backgroundColor: "rgba(109,23,203,0.44)",
+                    backgroundColor: "rgba(178,140,255,0.5)",
                     borderColor: "rgba(13,15,13,0.86)",
                     borderCapStyle: "rgba(109,23,203,0.61)",
                     data: arr,
@@ -397,7 +397,7 @@ $(document).ready(function () {
                 labels: ['Carbs', 'Fat', 'Protein'],
                 datasets: [{
                     label: 'Recommended Grams',
-                    backgroundColor: "#6d17cb",
+                    backgroundColor: "#c2a3ff",
                     borderColor: "#2876f9",
                     borderCapStyle: "#2876f9",
                     defaultFontSize: "30",
@@ -409,7 +409,7 @@ $(document).ready(function () {
                 }, {
 
                     label: 'Your Intake Grams',
-                    backgroundColor: "rgba(48,123,255,0.93)",
+                    backgroundColor: "#68b9f0",
                     borderColor: "rgb(13,15,13)",
                     borderCapStyle: "rgba(255,2,0,0.55)",
                     data: arr2,
@@ -445,7 +445,7 @@ $(document).ready(function () {
                 labels: ['Vitamin A', 'Vitamin C', 'Vitamin B6', 'Vitamin B12', 'Vitamin D', 'Vitamin E', 'Vitamin K', 'Niacin', 'Riboflavin', 'Thiamin', 'Iron', 'Calcium', 'Folate', 'Phosphorus', 'Magnesium', 'Zinc', 'Potassium'],
                 datasets: [{
                     label: 'Recommended Grams',
-                    backgroundColor: "rgba(109,23,203,0.69)",
+                    backgroundColor: "#ff89a2",
                     borderColor: "rgb(0,0,0)",
                     borderCapStyle: "#2876f9",
                     data: [
@@ -469,7 +469,7 @@ $(document).ready(function () {
                     ]
                 }, {
                     label: 'Your Intake Grams',
-                    backgroundColor: "#2876f9",
+                    backgroundColor: "#78cfcf",
                     borderColor: "rgb(0,0,0)",
                     borderCapStyle: "rgb(0,0,0)",
 

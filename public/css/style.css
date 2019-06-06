@@ -107,7 +107,7 @@ h1 {
     width: 100%;
     padding-top: 5rem;
     padding-bottom: 15rem;
-    background: linear-gradient(to top, #dc3545, rgba(31, 255, 39, 0.0)), url("http://eskipaper.com/images/orange-fruit-splash-1.jpg") fixed center center !important;
+    background: linear-gradient(to top, rgba(20, 136, 204, 0.8), rgba(31, 255, 39, 0.0)), url("http://eskipaper.com/images/orange-fruit-splash-1.jpg") fixed center center !important;
     background-size: cover !important;
     font-family: 'Poppins', sans-serif !important;
     /*background-image: linear-gradient(to right, #dc3545 0%, #1488CC 74%);*/
@@ -118,7 +118,7 @@ h1 {
     font-size: 5.5rem !important;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to bottom, #000 50%, #000 50%) !important;
+    background-image: linear-gradient(to bottom, #0f577e 62%, #000 93%) !important;
     -webkit-text-stroke-color: #ffffff !important;
     font-family: 'Poppins', sans-serif !important;
     text-transform: uppercase;
@@ -132,7 +132,7 @@ h1 {
     width: 100%;
     padding-top: 5rem;
     padding-bottom: 2rem;
-    background: linear-gradient(to top, rgb(250, 255, 248), rgba(244, 248, 255, 0.8)), url("https://ak8.picdn.net/shutterstock/videos/28940038/thumb/10.jpg") fixed center center !important;
+    background: linear-gradient(to top, rgba(250, 255, 248, 0.87), rgba(166, 201, 255, 0.9)), url("https://images.unsplash.com/photo-1543286386-2e659306cd6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80") fixed center center !important;
     background-size: cover !important;
     font-family: 'Poppins', sans-serif !important;
 
@@ -140,7 +140,7 @@ h1 {
 }
 
 .masthead3 h1 {
-    font-size: 5.5rem !important;
+    font-size: 4.5rem !important;
     margin: 0;
     padding: 0;
     background-image: linear-gradient(to bottom, #000 50%, #000 50%) !important;
@@ -481,7 +481,7 @@ header.masthead {
     width: 100%;
     height: 100%;
     background-color: #343a40;
-    background: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2731&q=80") center center no-repeat;
+    background: url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60") center center no-repeat;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem;
@@ -494,7 +494,7 @@ header.masthead .overlay {
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0.3;
+    opacity: 0.0;
     background-image: linear-gradient(to right, #dc3545 0%, #1488CC 74%);
 }
 
@@ -650,7 +650,7 @@ footer.footer {
     position: relative;
     z-index: 2;
     font-size: 18px;
-    color: #333;
+    color: #ffffff;
 }
 
 .contact-form .input-block .form-control:focus label {
@@ -748,7 +748,7 @@ footer.footer {
 }
 
 #signIn {
-    color: #A231FC;
+    color: #03b53c;
     font-size: 30px;
     font-weight: bolder;
     text-decoration: underline;
@@ -785,9 +785,9 @@ body {
     font-weight: bold;
     font-size: 1.5rem;
     margin: 0 0 0.25rem 0;
-    color: black !important;
+    color: white !important;
     font-family: 'Rubik', sans-serif;
-    text-shadow: 0em 0em 1em rgb(126, 150, 255);
+    text-shadow: 0em 0em 1em rgb(0, 0, 0);
 }
 h1 {
     color: black;
@@ -806,7 +806,7 @@ h1 small {
     text-transform: none;
     font-weight: 300;
     margin-top: 10px;
-    color: #ff7c62;
+    color: #000000;
 }
 
 .made-with-love {
@@ -904,7 +904,7 @@ h1 small {
 }
 
 .radiobtn input[type="radio"]:checked + label {
-    background: #C684D4;
+    background: #59d9dc;
     -webkit-animation-name: blink;
     animation-name: blink;
     -webkit-animation-duration: 1s;
@@ -913,7 +913,7 @@ h1 small {
 }
 
 .radiobtn input[type="radio"]:checked + label:after {
-    background: #C684D4;
+    background: #62ef37;
 }
 
 .radiobtn input[type="radio"]:checked + label:before {
@@ -923,61 +923,61 @@ h1 small {
 
 @-webkit-keyframes blink {
     0% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     10% {
         background-color: #73767B;
     }
     11% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     29% {
         background-color: #73767B;
     }
     30% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     50% {
         background-color: #73767B;
     }
     45% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     50% {
         background-color: #73767B;
     }
     100% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
 }
 
 @keyframes blink {
     0% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     10% {
         background-color: #73767B;
     }
     11% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     29% {
         background-color: #73767B;
     }
     30% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     50% {
         background-color: #73767B;
     }
     45% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
     50% {
         background-color: #73767B;
     }
     100% {
-        background-color: #C684D4;
+        background-color: #62ef37;
     }
 }
 
