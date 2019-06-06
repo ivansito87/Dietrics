@@ -255,7 +255,7 @@ $(document).ready(function () {
 
     });
     function apiCall(searchQuery) {
-        let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=" + searchQuery;
+        let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=9381544b&app_key=03901b5fa5486a2871d5be06be321a3f&ingr=" + searchQuery;
         $.get({
             url: queryURL,
             method: "GET",

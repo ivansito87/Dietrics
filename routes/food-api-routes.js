@@ -5,7 +5,7 @@ var rp = require('request-promise');
 // ===============================================================================
 
 const optionsArr = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
-let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=c0bc3d2f&app_key=912969595054b8a128346731ffbf79b3&ingr=";
+let queryURL = "https://api.edamam.com/api/nutrition-data?app_id=9381544b&app_key=03901b5fa5486a2871d5be06be321a3f&ingr=";
 
 module.exports = function (app) {
 
